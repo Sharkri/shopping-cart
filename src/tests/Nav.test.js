@@ -1,14 +1,7 @@
 import Nav from "../components/Nav";
 import { render, screen } from "@testing-library/react";
-
-jest.mock("react-router-dom", () => ({
-  Link: (props) => (
-    <>
-      <div data-testid="name">{props.children}</div>
-      <div data-testid="to">{props.to}</div>
-    </>
-  ),
-}));
+import { BrowserRouter } from "react-router-dom";
+import userEvent from "@testing-library/user-event";
 
 const links = [
   { name: "Home", to: "/" },
@@ -16,16 +9,22 @@ const links = [
 ];
 
 describe("nav", () => {
-  it("should pass in correct props which are url and name", async () => {
-    render(<Nav links={links} />);
+  it("should navigate to a different page correctly", () => {
+    render(
+      <BrowserRouter>
+        <Nav links={links} />
+      </BrowserRouter>
+    );
 
-    const names = screen.getAllByTestId("name");
-    const urls = screen.getAllByTestId("to");
+    const shop = screen.getByRole("link", { name: "Shop" });
+    const home = screen.getByRole("link", { name: "Home" });
 
-    expect(names[0].textContent).toMatch(/Home/i);
-    expect(urls[0].textContent).toMatch("/");
+    expect(window.location.href).toBe("http://localhost/");
 
-    expect(names[1].textContent).toMatch(/Shop/i);
-    expect(urls[1].textContent).toMatch("/shop");
+    userEvent.click(shop);
+    expect(window.location.href).toBe("http://localhost/shop");
+
+    userEvent.click(home);
+    expect(window.location.href).toBe("http://localhost/");
   });
 });

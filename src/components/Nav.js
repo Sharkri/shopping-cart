@@ -5,7 +5,9 @@ function Nav({ links }) {
   return (
     <nav>
       {links.map((link) => (
-        <Link to={link.to}>{link.name}</Link>
+        <Link to={link.to} key={link.id}>
+          {link.name}
+        </Link>
       ))}
     </nav>
   );

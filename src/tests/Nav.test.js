@@ -4,8 +4,8 @@ import { BrowserRouter } from "react-router-dom";
 import userEvent from "@testing-library/user-event";
 
 const links = [
-  { name: "Home", to: "/" },
-  { name: "Shop", to: "/shop" },
+  { name: "Home", to: "/", id: "1234" },
+  { name: "Shop", to: "/shop", id: "50" },
 ];
 
 describe("nav", () => {

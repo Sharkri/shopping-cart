@@ -5,9 +5,3 @@ header {
   padding: 24px;
   background-color: var(--blue);
 }
-
-a {
-  text-decoration: none;
-  color: rgb(247, 247, 247);
-  font-weight: bold;
-}

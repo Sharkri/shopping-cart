@@ -5,8 +5,8 @@ import Title from "./Title";
 function Header({ links }) {
   return (
     <header>
-      <Title title="idk" />
       <Nav links={links} />
+      <Title title="idk" />
     </header>
   );
 }

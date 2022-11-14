@@ -1,7 +1,13 @@
-import products from "../products.json";
 import ShopItem from "./ShopItem";
 
-function Shop() {
+function Shop({ products }) {
+  if (products == null || !products.length) {
+    return (
+      <div className="shop">
+        <h1>No products found</h1>
+      </div>
+    );
+  }
   return (
     <div className="shop">
       {products.map((product) => {

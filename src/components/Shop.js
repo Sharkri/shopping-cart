@@ -1,7 +1,19 @@
+import products from "../products.json";
+import ShopItem from "./ShopItem";
+
 function Shop() {
   return (
     <div className="shop">
-      <h1>Shop Page</h1>
+      {products.map((product) => {
+        return (
+          <ShopItem
+            name={product.name}
+            price={product.price}
+            image={product.image}
+            key={product.id}
+          />
+        );
+      })}
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import ShopItem from "./ShopItem";
 
 function Shop({ products }) {
+  console.log(products);
   if (products == null || !products.length) {
     return (
       <div className="shop">

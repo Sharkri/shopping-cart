@@ -1,14 +1,12 @@
 import { Link } from "react-router-dom";
 import "../styles/Nav.css";
 
-function Nav({ links }) {
+function Nav() {
   return (
     <nav>
-      {links.map((link) => (
-        <Link to={link.to} key={link.id}>
-          {link.name}
-        </Link>
-      ))}
+      <Link to="/">Home</Link>
+      <Link to="/shop">Shop</Link>
+      <Link to="/cart">Cart</Link>
     </nav>
   );
 }

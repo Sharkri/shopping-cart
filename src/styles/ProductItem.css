@@ -3,6 +3,7 @@
   background-color: aliceblue;
   cursor: pointer;
   transition: 0.2s ease;
+  animation: 0.3s render;
 }
 
 .shop-item:hover {
@@ -11,4 +12,13 @@
 
 .product-image {
   width: 120px;
+}
+
+@keyframes render {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
 }

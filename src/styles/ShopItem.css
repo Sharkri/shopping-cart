@@ -1,4 +1,10 @@
 .shop-item {
   padding: 18px;
   background-color: aliceblue;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.shop-item:hover {
+  transform: scale(1.1);
 }

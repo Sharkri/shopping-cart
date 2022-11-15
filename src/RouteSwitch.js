@@ -1,31 +1,14 @@
-import { useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./Home";
-import Header from "./components/Header";
-import Shop from "./components/Shop";
-import uniqid from "uniqid";
-import Cart from "./components/Cart";
-import "@fortawesome/fontawesome-free/css/all.min.css";
-import productsJSON from "./products.json";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-const RouteSwitch = () => {
-  const [products, setProducts] = useState(
-    productsJSON.map((product) => {
-      const image = require(`${product.image.toLowerCase()}`);
-      return { ...product, image };
-    })
-  );
-
+export default function RouteSwitch({ Header, pages }) {
   return (
     <BrowserRouter>
       <Header />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/shop" element={<Shop products={products} />} />
-        <Route path="/cart" element={<Cart />} />
+        {pages.map((page) => (
+          <Route path={page.path} element={<page.element />} key={page.id} />
+        ))}
       </Routes>
     </BrowserRouter>
   );
-};
-
-export default RouteSwitch;
+}

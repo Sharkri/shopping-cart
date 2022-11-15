@@ -9,7 +9,12 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import productsJSON from "./products.json";
 
 const RouteSwitch = () => {
-  const [products, setProducts] = useState(productsJSON);
+  const [products, setProducts] = useState(
+    productsJSON.map((product) => {
+      const image = require(`${product.image.toLowerCase()}`);
+      return { ...product, image };
+    })
+  );
 
   return (
     <BrowserRouter>

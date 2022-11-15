@@ -8,3 +8,7 @@
 .shop-item:hover {
   transform: scale(1.1);
 }
+
+.product-image {
+  width: 120px;
+}

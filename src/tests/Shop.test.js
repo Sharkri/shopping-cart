@@ -1,7 +1,7 @@
 import Shop from "../components/Shop";
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
-jest.mock("../components/ShopItem", () => (product) => (
+jest.mock("../components/ProductItem", () => (product) => (
   <>
     <div data-testid="name">{product.name}</div>
     <div data-testid="price">{product.price}</div>
@@ -28,7 +28,7 @@ let items = [
 ];
 
 describe("shop", () => {
-  it("should render multiple shop items", () => {
+  it("should render multiple products", () => {
     render(<Shop products={items} />);
 
     const names = screen.getAllByTestId("name");

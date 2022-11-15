@@ -1,1 +1,7 @@
-[{ "name": "product" }, { "name": "other product" }]
+[
+  {
+    "name": "product",
+    "price": "$5.99",
+    "image": "./images/shark.png"
+  }
+]

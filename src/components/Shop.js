@@ -1,4 +1,4 @@
-import ShopItem from "./ShopItem";
+import ProductItem from "./ProductItem";
 import "../styles/Shop.css";
 
 function Shop({ products }) {
@@ -14,7 +14,7 @@ function Shop({ products }) {
       <div className="products">
         {products.map((product) => {
           return (
-            <ShopItem
+            <ProductItem
               name={product.name}
               price={product.price}
               image={product.image}

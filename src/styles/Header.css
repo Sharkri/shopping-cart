@@ -4,4 +4,5 @@ header {
   justify-content: space-between;
   padding: 18px 28px;
   background-color: var(--blue);
+  margin-bottom: 24px;
 }

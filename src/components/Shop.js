@@ -2,7 +2,6 @@ import ShopItem from "./ShopItem";
 import "../styles/Shop.css";
 
 function Shop({ products }) {
-  console.log(products);
   if (products == null || !products.length) {
     return (
       <div className="shop">
@@ -19,6 +18,7 @@ function Shop({ products }) {
               name={product.name}
               price={product.price}
               image={product.image}
+              description={product.description}
               key={product.id}
             />
           );

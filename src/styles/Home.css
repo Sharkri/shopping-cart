@@ -6,4 +6,6 @@
 }
 
 .shop-now {
+  background-color: var(--blue);
+  padding: 18px;
 }

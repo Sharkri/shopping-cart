@@ -7,3 +7,7 @@ header {
   background-color: var(--blue);
   margin-bottom: 24px;
 }
+
+header a {
+  color: rgb(247, 247, 247);
+}

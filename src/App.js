@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./Home";
+import Home from "./components/Home";
 import Header from "./components/Header";
 import Shop from "./components/Shop";
 import uniqid from "uniqid";
@@ -17,7 +17,9 @@ const App = () => {
   productsCopy.forEach((product) => {
     try {
       product.image = require(`${product.image}`);
-    } catch (error) {}
+    } catch (error) {
+      console.error(error);
+    }
   });
 
   const [products, setProducts] = useState(productsCopy);

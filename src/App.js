@@ -7,13 +7,16 @@ import Cart from "./components/Cart";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import productsJson from "./products.json";
 import RouteSwitch from "./RouteSwitch";
+import ProductPage from "./components/ProductPage";
 
 const App = () => {
   // Copy JSON to not modify directly
-  let productsCopy = JSON.parse(JSON.stringify(productsJson));
+  let allProducts = JSON.parse(JSON.stringify(productsJson));
 
   // Require images to load properly
-  productsCopy.forEach((product) => {
+  allProducts.forEach((product) => {
+    product.id = uniqid();
+
     try {
       product.image = require(`${product.image}`);
     } catch (error) {
@@ -21,7 +24,8 @@ const App = () => {
     }
   });
 
-  const [products, setProducts] = useState(productsCopy);
+  // Will implement search products on this later
+  const [products, setProducts] = useState(allProducts);
 
   return (
     <RouteSwitch
@@ -44,6 +48,13 @@ const App = () => {
           path: "/cart",
           id: uniqid(),
         },
+
+        // Create route for all products
+        ...allProducts.map((product) => ({
+          element: <ProductPage product={product} key={product.id} />,
+          path: `/shop/${product.path}`,
+          id: product.id,
+        })),
       ]}
     />
   );

@@ -12,18 +12,16 @@ function Shop({ products }) {
   return (
     <div className="shop">
       <div className="products">
-        {products.map((product) => {
-          return (
-            <ProductItem
-              name={product.name}
-              price={product.price}
-              image={product.image}
-              description={product.description}
-              key={product.id}
-              path={product.path}
-            />
-          );
-        })}
+        {products.map((product) => (
+          <ProductItem
+            name={product.name}
+            price={product.price}
+            image={product.image}
+            description={product.description}
+            path={product.path}
+            key={product.id}
+          />
+        ))}
       </div>
     </div>
   );

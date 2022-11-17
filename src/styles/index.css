@@ -4,8 +4,27 @@
   box-sizing: border-box;
 }
 
+@font-face {
+  font-family: "Montserrat-SemiBold";
+  src: url("../fonts/Montserrat-SemiBold.ttf");
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("../fonts/Montserrat-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Montserrat-Bold";
+  src: url("../fonts/Montserrat-Bold.ttf");
+}
+
+h1 {
+  font-family: "Montserrat-Bold", sans-serif;
+}
+
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Montserrat", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   --blue: rgb(0, 88, 171);
@@ -28,6 +47,11 @@ code {
 
 a {
   text-decoration: none;
+  font-family: "Montserrat-Bold", sans-serif;
   font-weight: bold;
   color: rgb(247, 247, 247);
+}
+
+button {
+  cursor: pointer;
 }

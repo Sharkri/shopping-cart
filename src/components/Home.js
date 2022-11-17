@@ -18,6 +18,11 @@ function Home() {
           </Link>
         </div>
       </section>
+
+      <section className="bottom-section">
+        <h1 className="bottom-section-heading">Featured Items</h1>
+        {/* Add featured products in here */}
+      </section>
     </div>
   );
 }

@@ -2,6 +2,8 @@
   flex-grow: 1;
 }
 
+/* Top Section */
+
 .top-section {
   width: 100%;
   display: flex;
@@ -44,10 +46,13 @@
 
 .image-text {
   color: rgb(247, 247, 247);
+  font-family: "Montserrat", sans-serif;
   font-weight: normal;
-  letter-spacing: 2px;
+  letter-spacing: 0.5px;
   font-size: 2.5rem;
 }
+
+/* Bottom Section */
 
 .bottom-section {
   margin-top: 2rem;

@@ -4,12 +4,6 @@ import ProductPage from "../components/ProductPage";
 import "@testing-library/user-event";
 import userEvent from "@testing-library/user-event";
 
-// 1. Show image and name
-// 2. Show additional details e.g. description
-// 3. Have a button to add to cart
-// 4. Add Button to go back
-// 5. idk
-
 jest.mock("react-router-dom", () => ({
   Link: ({ to, children }) => <a href={to}>{children}</a>,
 }));

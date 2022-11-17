@@ -1,4 +1,5 @@
 import { render, screen } from "@testing-library/react";
+import "@testing-library/jest-dom";
 import Title from "../components/Title";
 
 jest.mock("react-router-dom", () => ({
@@ -8,6 +9,8 @@ jest.mock("react-router-dom", () => ({
 it("should display title correctly", () => {
   render(<Title title="Test Title" />);
 
-  const title = screen.getByRole("link", { name: "Test Title" });
-  expect(title.href).toBe("http://localhost/");
+  expect(screen.getByRole("link", { name: "Test Title" })).toHaveAttribute(
+    "href",
+    "/"
+  );
 });

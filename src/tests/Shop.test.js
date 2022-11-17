@@ -7,6 +7,7 @@ jest.mock("../components/ProductItem", () => (product) => (
     <div data-testid="price">{product.price}</div>
     <div data-testid="image">{product.image}</div>
     <div data-testid="description">{product.description}</div>
+    <div data-testid="path">{product.path}</div>
   </>
 ));
 
@@ -17,6 +18,7 @@ let items = [
     image: "nonexistentImg.jpg",
     description: "product description",
     id: 1,
+    path: "/products/testpath",
   },
   {
     name: "some other item",
@@ -24,6 +26,7 @@ let items = [
     image: "idk.png",
     description: "product2 description",
     id: 2,
+    path: "/test/yes",
   },
 ];
 
@@ -34,17 +37,20 @@ describe("shop", () => {
     const names = screen.getAllByTestId("name");
     const prices = screen.getAllByTestId("price");
     const images = screen.getAllByTestId("image");
-    const description = screen.getAllByTestId("description");
+    const descriptions = screen.getAllByTestId("description");
+    const paths = screen.getAllByTestId("path");
 
     expect(names[0].textContent).toMatch(/product name/i);
     expect(prices[0].textContent).toBe("5.99");
     expect(images[0].textContent).toBe("nonexistentImg.jpg");
-    expect(description[0].textContent).toBe("product description");
+    expect(descriptions[0].textContent).toBe("product description");
+    expect(paths[0].textContent).toBe("/products/testpath");
 
     expect(names[1].textContent).toMatch(/some other item/i);
     expect(prices[1].textContent).toBe("2.49");
     expect(images[1].textContent).toBe("idk.png");
-    expect(description[1].textContent).toBe("product2 description");
+    expect(descriptions[1].textContent).toBe("product2 description");
+    expect(paths[1].textContent).toBe("/test/yes");
   });
 
   it("should display text when no products", () => {

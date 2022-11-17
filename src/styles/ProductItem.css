@@ -4,6 +4,7 @@
   cursor: pointer;
   transition: 0.2s ease;
   animation: 0.3s render;
+  color: black;
 }
 
 .shop-item:hover {

@@ -1,11 +1,12 @@
 import "../styles/ProductItem.css";
+import { Link } from "react-router-dom";
 
-export default function ProductItem({ name, price, image }) {
+export default function ProductItem({ name, price, image, path }) {
   return (
-    <div className="shop-item">
+    <Link className="shop-item" to={path}>
       <p>{name}</p>
       <p>{price}</p>
       <img src={image} alt={name} className="product-image" />
-    </div>
+    </Link>
   );
 }

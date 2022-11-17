@@ -20,6 +20,7 @@ function Shop({ products }) {
               image={product.image}
               description={product.description}
               key={product.id}
+              path={product.path}
             />
           );
         })}

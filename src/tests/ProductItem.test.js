@@ -12,3 +12,20 @@ it("should render a shop item", () => {
   expect(image).toHaveAttribute("alt", "item name");
   expect(image).toHaveAttribute("src", "fakeimg.png");
 });
+
+jest.mock("react-router-dom", () => ({
+  Link: (props) => {
+    return (
+      <>
+        <div data-testid="to">{props.to}</div>
+        <div>{props.children}</div>
+      </>
+    );
+  },
+}));
+
+it("should render link/path to product", () => {
+  render(<ProductItem path="/products/test-name" name="" price="" image="" />);
+
+  expect(screen.getByTestId("to").textContent).toBe("/products/test-name");
+});

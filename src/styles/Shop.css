@@ -5,4 +5,5 @@
   gap: 32px;
   padding-left: var(--horizontal-spacing);
   padding-right: var(--horizontal-spacing);
+  margin-top: 24px;
 }

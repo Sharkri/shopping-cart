@@ -1,6 +1,7 @@
 [
   {
-    "name": "product",
+    "name": "Shark",
+    "path": "/products/shark",
     "price": "$5.99",
     "image": "./images/shark.png"
   }

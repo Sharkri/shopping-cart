@@ -5,5 +5,8 @@ header {
   padding-top: 18px;
   padding-bottom: 18px;
   background-color: var(--blue);
-  margin-bottom: 24px;
+  position: sticky;
+  top: 0;
+  padding-left: var(--horizontal-spacing);
+  padding-right: var(--horizontal-spacing);
 }

@@ -3,4 +3,6 @@
   align-items: center;
   flex-wrap: wrap;
   gap: 32px;
+  padding-left: var(--horizontal-spacing);
+  padding-right: var(--horizontal-spacing);
 }

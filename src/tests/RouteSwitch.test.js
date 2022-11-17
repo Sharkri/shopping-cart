@@ -17,8 +17,8 @@ jest.mock("react-router-dom", () => ({
 
 const Header = () => <h1>HEADER PAGE!</h1>;
 const pages = [
-  { path: "/", element: () => "test element", id: 1 },
-  { path: "/test", element: () => "test element2", id: 2 },
+  { path: "/", element: "test element", id: 1 },
+  { path: "/test", element: "test element2", id: 2 },
 ];
 
 it("should render header and routes properly", () => {

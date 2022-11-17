@@ -6,7 +6,7 @@ export default function RouteSwitch({ Header, pages }) {
       <Header />
       <Routes>
         {pages.map((page) => (
-          <Route path={page.path} element={<page.element />} key={page.id} />
+          <Route path={page.path} element={page.element} key={page.id} />
         ))}
       </Routes>
     </BrowserRouter>

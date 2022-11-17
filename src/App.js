@@ -28,19 +28,19 @@ const App = () => {
       Header={() => <Header />}
       pages={[
         {
-          element: () => <Home />,
+          element: <Home />,
           path: "/",
           id: uniqid(),
         },
 
         {
-          element: () => <Shop products={products} />,
+          element: <Shop products={products} />,
           path: "/shop",
           id: uniqid(),
         },
 
         {
-          element: () => <Cart />,
+          element: <Cart />,
           path: "/cart",
           id: uniqid(),
         },

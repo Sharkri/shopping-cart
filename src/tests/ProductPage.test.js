@@ -32,23 +32,77 @@ it("should render name, description, price, and image", () => {
   expect(image).toHaveAttribute("src", "test-image.png");
 });
 
-it("should call function on add to cart click", () => {
+it("should display no description provided", () => {
+  const newProduct = { ...product, description: "" };
+  render(<ProductPage product={newProduct} />);
+  expect(screen.getByText("No description provided.")).toBeInTheDocument();
+});
+
+it("should call onAddToCart with correct params", () => {
   const mockAddToCart = jest.fn();
+
   render(<ProductPage onAddToCart={mockAddToCart} product={product} />);
 
   const addToCart = screen.getByRole("button", { name: /Add to cart/i });
 
   userEvent.click(addToCart);
 
-  // Check if function was called with product
-  expect(mockAddToCart).toHaveBeenCalledWith(expect.objectContaining(product));
+  // Check if function was called with product and quantity (by default quantity is 1)
+  expect(mockAddToCart).toHaveBeenCalledWith(
+    expect.objectContaining(product),
+    1
+  );
 });
 
-it("should be able to navigate back to shop", () => {
-  render(<ProductPage product={product} />);
+describe("quantity", () => {
+  it("should let a user manually type in quantity", () => {
+    render(<ProductPage product={product} />);
 
-  expect(screen.getByRole("link", { name: /Go back/i })).toHaveAttribute(
-    "href",
-    "/shop"
-  );
+    const input = screen.getByRole("spinbutton");
+
+    expect(input).toHaveValue(1);
+    userEvent.type(input, "0");
+    expect(input).toHaveValue(10);
+    userEvent.type(input, "2");
+    expect(input).toHaveValue(102);
+  });
+
+  it("should increment and decrement by 1", () => {
+    render(<ProductPage product={product} />);
+    const increment = screen.getByRole("button", { name: "+" });
+    const decrement = screen.getByRole("button", { name: "-" });
+    const input = screen.getByRole("spinbutton");
+
+    expect(input).toHaveValue(1);
+    userEvent.click(increment);
+    expect(input).toHaveValue(2);
+    userEvent.click(decrement);
+    expect(input).toHaveValue(1);
+  });
+
+  it("should not allow decrement to go below 1", () => {
+    render(<ProductPage product={product} />);
+    const decrement = screen.getByRole("button", { name: "-" });
+    const input = screen.getByRole("spinbutton");
+    expect(input).toHaveValue(1);
+
+    userEvent.click(decrement);
+
+    expect(input).toHaveValue(1);
+  });
+
+  it("should not add to cart if quantity below 1", () => {
+    const mockAddToCart = jest.fn();
+
+    render(<ProductPage onAddToCart={mockAddToCart} product={product} />);
+    const input = screen.getByRole("spinbutton");
+    const addToCart = screen.getByRole("button", { name: /Add to cart/i });
+
+    userEvent.type(input, "{backspace}0");
+    expect(input).toHaveValue(0);
+    expect(addToCart).toHaveAttribute("disabled");
+
+    userEvent.click(addToCart);
+    expect(mockAddToCart).not.toHaveBeenCalled();
+  });
 });

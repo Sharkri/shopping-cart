@@ -17,12 +17,12 @@ it("should call increment and decrement", () => {
   );
 
   expect(onDecrement).toHaveBeenCalledTimes(0);
-  const decrement = screen.getByRole("button", { name: "-" });
+  const decrement = screen.getByRole("button", { name: "decrement" });
   userEvent.click(decrement);
   expect(onDecrement).toHaveBeenCalledTimes(1);
 
   expect(onIncrement).toHaveBeenCalledTimes(0);
-  const increment = screen.getByRole("button", { name: "+" });
+  const increment = screen.getByRole("button", { name: "increment" });
   userEvent.click(increment);
   expect(onIncrement).toHaveBeenCalledTimes(1);
 });

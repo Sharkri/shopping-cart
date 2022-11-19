@@ -69,8 +69,8 @@ describe("quantity", () => {
 
   it("should increment and decrement by 1", () => {
     render(<ProductPage product={product} />);
-    const increment = screen.getByRole("button", { name: "+" });
-    const decrement = screen.getByRole("button", { name: "-" });
+    const increment = screen.getByRole("button", { name: "increment" });
+    const decrement = screen.getByRole("button", { name: "decrement" });
     const input = screen.getByRole("spinbutton");
 
     expect(input).toHaveValue(1);
@@ -82,7 +82,7 @@ describe("quantity", () => {
 
   it("should not allow decrement to go below 1", () => {
     render(<ProductPage product={product} />);
-    const decrement = screen.getByRole("button", { name: "-" });
+    const decrement = screen.getByRole("button", { name: "decrement" });
     const input = screen.getByRole("spinbutton");
     expect(input).toHaveValue(1);
 

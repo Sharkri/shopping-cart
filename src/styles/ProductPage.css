@@ -74,6 +74,11 @@
   max-width: 285px;
 }
 
+.add-to-cart:disabled {
+  background-color: var(--disabled-blue);
+  cursor: not-allowed;
+}
+
 .go-back {
   color: black;
   width: fit-content;

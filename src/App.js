@@ -20,7 +20,9 @@ const App = () => {
     try {
       product.image = require(`${product.image}`);
     } catch (error) {
-      console.error(error);
+      if (error.code === "MODULE_NOT_FOUND") {
+        console.error("Image failed to load");
+      } else console.error(error);
     }
   });
 

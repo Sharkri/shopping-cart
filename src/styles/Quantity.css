@@ -1,0 +1,39 @@
+/* Hide arrows from input */
+.quantity-input::-webkit-inner-spin-button,
+.quantity-input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+.quantity-counter {
+  display: flex;
+  gap: 8px;
+}
+
+.increment,
+.decrement {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  font-size: 20px;
+}
+
+.decrement > .fa-minus {
+  margin-top: 4px;
+}
+
+.quantity-input {
+  width: 58px;
+  height: 36px;
+  text-align: center;
+  border: 1px solid #e6dcd2;
+  outline: none;
+  background-color: transparent;
+  font-size: 0.9rem;
+  font-family: "Montserrat-SemiBold", sans-serif;
+  font-weight: bold;
+}
+
+.quantity-input:focus {
+  border: 1px solid blue;
+}

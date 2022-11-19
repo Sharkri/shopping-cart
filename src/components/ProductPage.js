@@ -24,18 +24,20 @@ export default function ProductPage({ product, onAddToCart }) {
           alt={product.name}
           className="product-page-image"
         />
+
         <div className="product-info">
           <div className="product-top">
             <div className="main-product-info">
               <h2 className="product-name">{product.name}</h2>
               <p className="product-price">{product.price}</p>
             </div>
+
             <p>{product.description || "No description provided."}</p>
           </div>
 
           <hr />
 
-          <div className="buttons">
+          <div className="product-bottom">
             <form className="product-cart" onSubmit={(e) => e.preventDefault()}>
               <Quantity
                 onIncrement={increment}
@@ -43,7 +45,6 @@ export default function ProductPage({ product, onAddToCart }) {
                 onChange={onInputChange}
                 quantity={quantity}
               />
-
               <button
                 onClick={() => onAddToCart(product, quantity)}
                 disabled={quantity < 1}
@@ -51,11 +52,11 @@ export default function ProductPage({ product, onAddToCart }) {
               >
                 Add to cart
               </button>
-            </form>
 
-            <Link to="/shop" className="go-back">
-              Go back
-            </Link>
+              <Link to="/shop" className="go-back">
+                Go back
+              </Link>
+            </form>
           </div>
         </div>
       </div>

@@ -9,6 +9,7 @@ const defaultCart = [
     description: "",
     price: "$45.63",
     image: "img.png",
+    id: 1,
   },
   {
     name: "testing2",
@@ -16,6 +17,7 @@ const defaultCart = [
     description: "description yes",
     price: "$999.99",
     image: "img2.jpg",
+    id: 2,
   },
 ];
 

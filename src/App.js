@@ -32,13 +32,11 @@ const App = () => {
 
   // Increments product quantity
   function addToCart(product, quantity) {
-    const newQuantity = (product.quantity || 0) + quantity;
-
     setCart((cart) => {
       const productIndex = cart.findIndex((item) => item.id === product.id);
       // If product has not been added to cart before
-      if (productIndex === -1) cart.push({ ...product, quantity: newQuantity });
-      else cart[productIndex].quantity = newQuantity;
+      if (productIndex === -1) cart.push({ ...product, quantity });
+      else cart[productIndex].quantity += quantity;
 
       return cart;
     });

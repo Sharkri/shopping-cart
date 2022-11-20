@@ -28,6 +28,21 @@ const App = () => {
 
   // Will implement search products on this later
   const [products, setProducts] = useState(allProducts);
+  const [cart, setCart] = useState([]);
+
+  // Increments product quantity
+  function addToCart(product, quantity) {
+    const newQuantity = (product.quantity || 0) + quantity;
+
+    setCart((cart) => {
+      const productIndex = cart.findIndex((item) => item.id === product.id);
+      // If product has not been added to cart before
+      if (productIndex === -1) cart.push({ ...product, quantity: newQuantity });
+      else cart[productIndex].quantity = newQuantity;
+
+      return cart;
+    });
+  }
 
   return (
     <RouteSwitch
@@ -46,14 +61,20 @@ const App = () => {
         },
 
         {
-          element: <Cart />,
+          element: <Cart cart={cart} />,
           path: "/cart",
           id: uniqid(),
         },
 
         // Create route for all products
         ...allProducts.map((product) => ({
-          element: <ProductPage product={product} key={product.id} />,
+          element: (
+            <ProductPage
+              product={product}
+              onAddToCart={addToCart}
+              key={product.id}
+            />
+          ),
           path: `/shop/${product.path}`,
           id: product.id,
         })),

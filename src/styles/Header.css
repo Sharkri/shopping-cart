@@ -10,7 +10,3 @@ header {
   padding-left: var(--horizontal-spacing);
   padding-right: var(--horizontal-spacing);
 }
-
-header a {
-  color: rgb(247, 247, 247);
-}

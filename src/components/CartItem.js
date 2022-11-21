@@ -26,7 +26,9 @@ function CartItem({ item, onChange, onDecrement, onIncrement, onRemove }) {
           onDecrement={() => onDecrement(item)}
           onIncrement={() => onIncrement(item)}
         />
-        <button onClick={() => onRemove(item.id)}>Remove item</button>
+        <button onClick={() => onRemove(item.id)} className="cart-item-remove">
+          Remove item
+        </button>
       </div>
     </div>
   );

@@ -2,14 +2,6 @@
   display: flex;
 }
 
-.cart-item-right-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 240px;
-  margin-left: 20px;
-}
-
 .cart-item-image {
   object-fit: contain;
   height: 128px;
@@ -28,10 +20,31 @@
   font-family: "Montserrat-SemiBold", sans-serif;
 }
 
+.cart-item-right-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 240px;
+  margin-left: 20px;
+}
+
 .cart-item-main-info {
   display: flex;
   align-items: center;
   font-size: 18px;
   gap: 84px;
   margin-bottom: 20px;
+}
+
+.cart-item-remove {
+  background-color: transparent;
+  border: none;
+  font-size: 11px;
+  letter-spacing: 1px;
+  margin-top: 4px;
+  transition: 0.2s ease;
+}
+
+.cart-item-remove:hover {
+  color: red;
 }

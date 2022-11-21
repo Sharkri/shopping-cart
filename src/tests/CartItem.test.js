@@ -6,7 +6,8 @@ import userEvent from "@testing-library/user-event";
 const item = {
   name: "item name",
   path: "/item/path",
-  price: "$44.24",
+  price: "44.24",
+  prefix: "$",
   image: "./testy.png",
   quantity: 1,
   id: 4,

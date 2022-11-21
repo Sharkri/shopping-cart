@@ -14,14 +14,7 @@ function Shop({ products }) {
     <div className="shop">
       <div className="products">
         {products.map((product) => (
-          <ProductItem
-            name={product.name}
-            price={product.price}
-            image={product.image}
-            description={product.description}
-            path={product.path}
-            key={product.id}
-          />
+          <ProductItem product={product} key={product.id} />
         ))}
       </div>
     </div>

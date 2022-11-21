@@ -18,7 +18,7 @@ function CartItem({ item, onChange, onDecrement, onIncrement, onRemove }) {
           <Link to={item.path} className="cart-item-name">
             {item.name}
           </Link>
-          <p className="cart-item-price">{item.price}</p>
+          <p className="cart-item-price">{`${item.prefix}${item.price}`}</p>
         </div>
         <Quantity
           quantity={item.quantity}

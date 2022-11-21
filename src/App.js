@@ -93,11 +93,17 @@ const App = () => {
               onDecrement={decrementCartItem}
               onIncrement={incrementCartItem}
               onRemove={deleteFromCart}
-              subtotal={cart.reduce(
-                (prev, curr) =>
-                  prev.price * prev.quantity + curr.price * curr.quantity,
-                { price: 0, quantity: 0 }
-              )}
+              subtotal={
+                // Make sure cart is not empty before reducing
+                cart.length &&
+                +cart
+                  .reduce(
+                    (prev, curr) =>
+                      prev.price * prev.quantity + curr.price * curr.quantity,
+                    { price: 0, quantity: 0 }
+                  )
+                  .toFixed(2)
+              }
             />
           ),
           path: "/cart",

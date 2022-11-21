@@ -11,6 +11,10 @@ jest.mock("../components/ProductItem", () => (product) => (
   </>
 ));
 
+jest.mock("react-router-dom", () => ({
+  Link: ({ to, children }) => <a href={to}>{children}</a>,
+}));
+
 let items = [
   {
     name: "product name",
@@ -53,8 +57,16 @@ describe("shop", () => {
     expect(paths[1].textContent).toBe("/test/yes");
   });
 
-  it("should display text when no products", () => {
+  it("should display no products found when given an empty array of products", () => {
     render(<Shop products={[]} />);
+
     expect(screen.getByText(/No products found/i)).toBeInTheDocument();
+    expect(
+      screen.getByText(/Please check your spelling or use different keywords./i)
+    ).toBeInTheDocument();
+
+    expect(
+      screen.getByRole("link", { name: /Return to shop/i })
+    ).toHaveAttribute("href", "/shop");
   });
 });

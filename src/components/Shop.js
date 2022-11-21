@@ -1,11 +1,12 @@
 import ProductItem from "./ProductItem";
 import "../styles/Shop.css";
+import NoProductsFound from "./NoProductsFound";
 
 function Shop({ products }) {
   if (products == null || !products.length) {
     return (
       <div className="shop">
-        <h1>No products found</h1>
+        <NoProductsFound />
       </div>
     );
   }

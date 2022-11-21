@@ -120,7 +120,7 @@ const App = () => {
             />
           ),
 
-          path: `/shop/${product.path}`,
+          path: product.path,
           id: uniqid(),
         })),
       ]}

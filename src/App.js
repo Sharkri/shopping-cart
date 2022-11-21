@@ -93,7 +93,11 @@ const App = () => {
               onDecrement={decrementCartItem}
               onIncrement={incrementCartItem}
               onRemove={deleteFromCart}
-              subtotal={0}
+              subtotal={cart.reduce(
+                (prev, curr) =>
+                  prev.price * prev.quantity + curr.price * curr.quantity,
+                { price: 0, quantity: 0 }
+              )}
             />
           ),
           path: "/cart",

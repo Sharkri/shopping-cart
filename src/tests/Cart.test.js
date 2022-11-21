@@ -30,7 +30,7 @@ jest.mock("react-router-dom", () => ({
 }));
 
 it("renders empty cart message and a link to head to the shop if given an empty cart", () => {
-  render(<Cart cart={[]} />);
+  render(<Cart cart={[]} subtotal="5.10" />);
 
   expect(
     screen.getByText(/There are currently no items in your cart./i)
@@ -38,6 +38,8 @@ it("renders empty cart message and a link to head to the shop if given an empty 
   expect(
     screen.getByRole("link", { name: /Continue shopping/i })
   ).toHaveAttribute("href", "/shop");
+
+  expect(screen.queryByText("Subtotal: 5.10")).not.toBeInTheDocument();
 });
 
 it("renders multiple cart items properly", () => {
@@ -46,4 +48,10 @@ it("renders multiple cart items properly", () => {
   const cartItems = screen.getAllByTestId("cart-item");
   expect(JSON.parse(cartItems[0].textContent)).toEqual(defaultCart[0]);
   expect(JSON.parse(cartItems[1].textContent)).toEqual(defaultCart[1]);
+});
+
+it("should display subtotal properly", () => {
+  render(<Cart cart={defaultCart} subtotal="$120.43" />);
+
+  expect(screen.getByText("Subtotal: $120.43")).toBeInTheDocument();
 });

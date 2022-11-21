@@ -93,6 +93,7 @@ const App = () => {
               onDecrement={decrementCartItem}
               onIncrement={incrementCartItem}
               onRemove={deleteFromCart}
+              subtotal={0}
             />
           ),
           path: "/cart",

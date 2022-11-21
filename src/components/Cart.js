@@ -2,7 +2,14 @@ import { Link } from "react-router-dom";
 import "../styles/Cart.css";
 import CartItem from "./CartItem";
 
-function Cart({ cart, onChange, onDecrement, onIncrement, onRemove }) {
+function Cart({
+  cart,
+  onChange,
+  onDecrement,
+  onIncrement,
+  onRemove,
+  subtotal,
+}) {
   return (
     <div className="cart">
       <h2 className="cart-header">Your cart</h2>
@@ -18,17 +25,19 @@ function Cart({ cart, onChange, onDecrement, onIncrement, onRemove }) {
             </Link>
           </div>
         ) : (
-          // Map through each item in cart array and display it
-          cart.map((item) => (
-            <CartItem
-              item={item}
-              key={item.id}
-              onChange={onChange}
-              onDecrement={onDecrement}
-              onIncrement={onIncrement}
-              onRemove={onRemove}
-            />
-          ))
+          <>
+            {cart.map((item) => (
+              <CartItem
+                item={item}
+                key={item.id}
+                onChange={onChange}
+                onDecrement={onDecrement}
+                onIncrement={onIncrement}
+                onRemove={onRemove}
+              />
+            ))}
+            <p>Subtotal: {subtotal}</p>
+          </>
         )}
       </div>
     </div>

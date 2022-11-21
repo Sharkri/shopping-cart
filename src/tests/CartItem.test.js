@@ -1,19 +1,22 @@
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import CartItem from "../components/CartItem";
+import userEvent from "@testing-library/user-event";
 
 const item = {
   name: "item name",
   path: "/item/path",
   price: "$44.24",
   image: "./testy.png",
+  quantity: 1,
+  id: 4,
 };
 
 jest.mock("react-router-dom", () => ({
   Link: ({ to, children }) => <a href={to}>{children}</a>,
 }));
 
-it("should should show product name, price, image", () => {
+it("should show product name, price, image", () => {
   render(<CartItem item={item} />);
 
   expect(screen.getByText("item name")).toBeInTheDocument();
@@ -30,4 +33,13 @@ it("should link to product page on click of product name or image", () => {
   // Link 0 is name and 1 is image
   expect(links[0]).toHaveAttribute("href", "/item/path");
   expect(links[1]).toHaveAttribute("href", "/item/path");
+});
+
+it("calls onChange with correct argument(s) on each input", () => {
+  const onChangeMock = jest.fn();
+  render(<CartItem item={item} onChange={onChangeMock} />);
+  const input = screen.getByRole("spinbutton");
+  expect(input).toHaveValue(1);
+  userEvent.type(input, "5");
+  expect(onChangeMock).toHaveBeenCalledWith(4, 15);
 });

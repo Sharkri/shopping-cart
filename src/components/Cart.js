@@ -1,6 +1,6 @@
 import CartItem from "./CartItem";
 
-function Cart({ cart }) {
+function Cart({ cart, onChange, onDecrement }) {
   if (!cart?.length)
     return (
       <div className="cart">
@@ -11,7 +11,7 @@ function Cart({ cart }) {
   return (
     <div className="cart">
       {cart.map((item) => (
-        <CartItem item={item} key={item.id} />
+        <CartItem item={item} key={item.id} onChange={onChange} />
       ))}
     </div>
   );

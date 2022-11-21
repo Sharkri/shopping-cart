@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Home from "./components/Home";
 import Header from "./components/Header";
 import Shop from "./components/Shop";
@@ -12,11 +12,8 @@ import ProductPage from "./components/ProductPage";
 const App = () => {
   // Copy JSON to not modify directly
   let allProducts = JSON.parse(JSON.stringify(productsJson));
-
   // Require images to load properly
   allProducts.forEach((product) => {
-    product.id = uniqid();
-
     try {
       product.image = require(`${product.image}`);
     } catch (error) {
@@ -42,6 +39,20 @@ const App = () => {
     });
   }
 
+  function onCartChange(productId, quantity) {
+    if (quantity <= 0) {
+      setCart(cart.filter((item) => item.id !== productId));
+      return;
+    }
+
+    setCart(
+      cart.map((item) => {
+        if (item.id === productId) return { ...item, quantity };
+        return item;
+      })
+    );
+  }
+
   return (
     <RouteSwitch
       Header={() => <Header />}
@@ -59,7 +70,7 @@ const App = () => {
         },
 
         {
-          element: <Cart cart={cart} />,
+          element: <Cart cart={cart} onChange={onCartChange} />,
           path: "/cart",
           id: uniqid(),
         },
@@ -73,6 +84,7 @@ const App = () => {
               key={product.id}
             />
           ),
+
           path: `/shop/${product.path}`,
           id: product.id,
         })),

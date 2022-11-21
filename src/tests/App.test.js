@@ -9,14 +9,13 @@ jest.mock("../products.json", () => [
     description: "test desc",
     price: "$29.99",
     image: "a.png",
+    id: 24,
   },
 ]);
 
 jest.mock("../components/Shop.js", () => ({ products }) => (
   <div data-testid="products">{JSON.stringify(products)}</div>
 ));
-
-jest.mock("uniqid", () => () => 1);
 
 it("should fetch products properly", () => {
   render(<App />);
@@ -27,7 +26,7 @@ it("should fetch products properly", () => {
     name: "testy",
     path: "/path/that/exists",
     description: "test desc",
-    id: 1,
+    id: 24,
     price: "$29.99",
     image: "a.png",
   });

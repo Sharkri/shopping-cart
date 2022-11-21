@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
+import Quantity from "./Quantity";
 
-function CartItem({ item }) {
+function CartItem({ item, onChange }) {
   return (
     <div className="cart-item">
       <Link to={item.path}>{item.name}</Link>
@@ -8,6 +9,11 @@ function CartItem({ item }) {
       <Link to={item.path}>
         <img src={item.image} alt={`${item.name}`} />
       </Link>
+
+      <Quantity
+        quantity={item.quantity}
+        onChange={(value) => onChange(item.id, +value)}
+      />
     </div>
   );
 }

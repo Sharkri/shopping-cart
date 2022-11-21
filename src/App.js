@@ -11,18 +11,7 @@ import ProductPage from "./components/ProductPage";
 
 const App = () => {
   // Copy JSON to not modify directly
-  let allProducts = JSON.parse(JSON.stringify(productsJson));
-
-  // Require images to load properly
-  allProducts.forEach((product) => {
-    try {
-      product.image = require(`${product.image}`);
-    } catch (error) {
-      if (error.code === "MODULE_NOT_FOUND") {
-        console.error("Image failed to load");
-      } else console.error(error);
-    }
-  });
+  const allProducts = JSON.parse(JSON.stringify(productsJson));
 
   // Will implement search products on this later
   const [products, setProducts] = useState(allProducts);
@@ -74,7 +63,6 @@ const App = () => {
   function incrementCartItem(product) {
     setCart(
       cart.map((item) => {
-        console.log(item);
         if (item.id === product.id) item.quantity += 1;
         return item;
       })

@@ -64,7 +64,7 @@
 
 .add-to-cart {
   color: white;
-  border: 1px solid var(--blue);
+  border: none;
   background-color: var(--blue);
   padding: 6px 16px;
   border-radius: 2px;

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import Quantity from "./Quantity";
+import "../styles/CartItem.css";
 
 function CartItem({ item, onChange, onDecrement, onIncrement }) {
   return (

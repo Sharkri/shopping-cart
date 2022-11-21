@@ -52,3 +52,12 @@ it("calls onDecrement with correct argument", () => {
 
   expect(onDecrementMock).toHaveBeenCalledWith(item);
 });
+
+it("calls onIncrement with correct argument", () => {
+  const onIncrementMock = jest.fn();
+  render(<CartItem item={item} onIncrement={onIncrementMock} />);
+  const increment = screen.getByRole("button", { name: "increment" });
+  userEvent.click(increment);
+
+  expect(onIncrementMock).toHaveBeenCalledWith(item);
+});

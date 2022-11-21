@@ -38,12 +38,11 @@ const App = () => {
 
       return prevCart;
     });
+    console.log(cart);
   }
 
   function deleteFromCart(productId) {
-    setCart((prevCart) =>
-      prevCart.filter((product) => product.id !== productId)
-    );
+    setCart(cart.filter((product) => product.id !== productId));
   }
 
   function onCartChange(productId, newQuantity) {
@@ -52,8 +51,8 @@ const App = () => {
       return;
     }
 
-    setCart((prevCart) =>
-      prevCart.map((item) => {
+    setCart(
+      cart.map((item) => {
         if (item.id === productId) item.quantity = newQuantity;
         return item;
       })
@@ -66,9 +65,19 @@ const App = () => {
       return;
     }
 
-    setCart((prevCart) =>
-      prevCart.map((item) => {
-        if (item.id === product.id) item.quantity--;
+    setCart(
+      cart.map((item) => {
+        if (item.id === product.id) item.quantity -= 1;
+        return item;
+      })
+    );
+  }
+
+  function incrementCartItem(product) {
+    setCart(
+      cart.map((item) => {
+        console.log(item);
+        if (item.id === product.id) item.quantity += 1;
         return item;
       })
     );
@@ -96,6 +105,7 @@ const App = () => {
               cart={cart}
               onChange={onCartChange}
               onDecrement={decrementCartItem}
+              onIncrement={incrementCartItem}
             />
           ),
           path: "/cart",

@@ -47,7 +47,7 @@ export default function ProductPage({ product, onAddToCart }) {
               />
               <button
                 onClick={() => onAddToCart(product, quantity)}
-                disabled={quantity < 1}
+                disabled={quantity < 1 || quantity % 1 !== 0}
                 className="add-to-cart"
               >
                 Add to cart

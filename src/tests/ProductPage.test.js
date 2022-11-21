@@ -106,3 +106,18 @@ describe("quantity", () => {
     expect(mockAddToCart).not.toHaveBeenCalled();
   });
 });
+
+it("should not add to cart if number has decimal", () => {
+  const mockAddToCart = jest.fn();
+
+  render(<ProductPage onAddToCart={mockAddToCart} product={product} />);
+  const input = screen.getByRole("spinbutton");
+  const addToCart = screen.getByRole("button", { name: /Add to cart/i });
+
+  userEvent.type(input, "{backspace}1.5");
+  expect(input).toHaveValue(1.5);
+  expect(addToCart).toHaveAttribute("disabled");
+
+  userEvent.click(addToCart);
+  expect(mockAddToCart).not.toHaveBeenCalled();
+});

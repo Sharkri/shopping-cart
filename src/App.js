@@ -33,6 +33,9 @@ const App = () => {
   }
 
   function onCartChange(productId, newQuantity) {
+    // if new quantity is not a whole number
+    if (newQuantity % 1) return;
+
     if (newQuantity <= 0) {
       deleteFromCart(productId);
       return;

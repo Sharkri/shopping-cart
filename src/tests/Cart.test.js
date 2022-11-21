@@ -25,10 +25,17 @@ jest.mock("../components/CartItem.js", () => ({ item }) => (
   <div data-testid="cart-item">{JSON.stringify(item)}</div>
 ));
 
-it('renders "Your cart is empty" when the cart is empty array', () => {
+jest.mock("react-router-dom", () => ({
+  Link: ({ to, children }) => <a href={to}>{children}</a>,
+}));
+
+it('renders "Your cart is empty" and a link to head to the shop if given an empty cart', () => {
   render(<Cart cart={[]} />);
 
   expect(screen.getByText(/Your cart is empty/i)).toBeInTheDocument();
+  expect(
+    screen.getByRole("link", { name: /Continue shopping/i })
+  ).toHaveAttribute("href", "/shop");
 });
 
 it("renders multiple cart items properly", () => {

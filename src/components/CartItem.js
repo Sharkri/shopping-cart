@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import Quantity from "./Quantity";
 
-function CartItem({ item, onChange }) {
+function CartItem({ item, onChange, onDecrement }) {
   return (
     <div className="cart-item">
       <Link to={item.path}>{item.name}</Link>
@@ -13,6 +13,7 @@ function CartItem({ item, onChange }) {
       <Quantity
         quantity={item.quantity}
         onChange={(value) => onChange(item.id, +value)}
+        onDecrement={() => onDecrement(item)}
       />
     </div>
   );

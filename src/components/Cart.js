@@ -11,7 +11,12 @@ function Cart({ cart, onChange, onDecrement }) {
   return (
     <div className="cart">
       {cart.map((item) => (
-        <CartItem item={item} key={item.id} onChange={onChange} />
+        <CartItem
+          item={item}
+          key={item.id}
+          onChange={onChange}
+          onDecrement={onDecrement}
+        />
       ))}
     </div>
   );

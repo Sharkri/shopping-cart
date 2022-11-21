@@ -43,3 +43,12 @@ it("calls onChange with correct argument(s) on each input", () => {
   userEvent.type(input, "5");
   expect(onChangeMock).toHaveBeenCalledWith(4, 15);
 });
+
+it("calls onDecrement with correct argument", () => {
+  const onDecrementMock = jest.fn();
+  render(<CartItem item={item} onDecrement={onDecrementMock} />);
+  const decrement = screen.getByRole("button", { name: "decrement" });
+  userEvent.click(decrement);
+
+  expect(onDecrementMock).toHaveBeenCalledWith(item);
+});

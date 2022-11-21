@@ -63,6 +63,7 @@ const App = () => {
   function decrementCartItem(product) {
     if (product.quantity === 1) {
       deleteFromCart(product.id);
+      return;
     }
 
     setCart((prevCart) =>
@@ -90,7 +91,13 @@ const App = () => {
         },
 
         {
-          element: <Cart cart={cart} onChange={onCartChange} />,
+          element: (
+            <Cart
+              cart={cart}
+              onChange={onCartChange}
+              onDecrement={decrementCartItem}
+            />
+          ),
           path: "/cart",
           id: uniqid(),
         },

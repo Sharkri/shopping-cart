@@ -30,15 +30,13 @@ const App = () => {
 
   // Increments product quantity
   function addToCart(product, quantity) {
-    setCart((prevCart) => {
-      const productIndex = prevCart.findIndex((item) => item.id === product.id);
-      // If product has not been added to cart before
-      if (productIndex === -1) prevCart.push({ ...product, quantity });
-      else prevCart[productIndex].quantity += quantity;
+    const newCart = JSON.parse(JSON.stringify(cart));
+    const productIndex = newCart.findIndex((item) => item.id === product.id);
+    // If product has not been added to cart before
+    if (productIndex === -1) newCart.push({ ...product, quantity });
+    else newCart[productIndex].quantity += quantity;
 
-      return prevCart;
-    });
-    console.log(cart);
+    setCart(newCart);
   }
 
   function deleteFromCart(productId) {

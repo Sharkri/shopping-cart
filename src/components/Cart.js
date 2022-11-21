@@ -36,7 +36,8 @@ function Cart({
                 onRemove={onRemove}
               />
             ))}
-            <p>Subtotal: {subtotal}</p>
+
+            <p className="subtotal">Subtotal: {subtotal}</p>
           </>
         )}
       </div>

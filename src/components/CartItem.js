@@ -5,18 +5,28 @@ import "../styles/CartItem.css";
 function CartItem({ item, onChange, onDecrement, onIncrement }) {
   return (
     <div className="cart-item">
-      <Link to={item.path}>{item.name}</Link>
-      <p>{item.price}</p>
-      <Link to={item.path}>
-        <img src={item.image} alt={`${item.name}`} />
+      <Link to={item.path} className="cart-item-left-section">
+        <img
+          src={item.image}
+          alt={`${item.name}`}
+          className="cart-item-image"
+        />
       </Link>
 
-      <Quantity
-        quantity={item.quantity}
-        onChange={(value) => onChange(item.id, +value)}
-        onDecrement={() => onDecrement(item)}
-        onIncrement={() => onIncrement(item)}
-      />
+      <div className="cart-item-right-section">
+        <div className="cart-item-main-info">
+          <Link to={item.path} className="cart-item-name">
+            {item.name}
+          </Link>
+          <p className="cart-item-price">{item.price}</p>
+        </div>
+        <Quantity
+          quantity={item.quantity}
+          onChange={(value) => onChange(item.id, +value)}
+          onDecrement={() => onDecrement(item)}
+          onIncrement={() => onIncrement(item)}
+        />
+      </div>
     </div>
   );
 }

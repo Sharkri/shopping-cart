@@ -1,0 +1,37 @@
+.cart-item {
+  display: flex;
+}
+
+.cart-item-right-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 240px;
+  margin-left: 20px;
+}
+
+.cart-item-image {
+  object-fit: contain;
+  height: 128px;
+  width: 128px;
+}
+
+.cart-item-price {
+  color: green;
+  line-height: 1.6;
+  letter-spacing: 0.5px;
+}
+
+.cart-item-name {
+  color: black;
+  font-weight: 600;
+  font-family: "Montserrat-SemiBold", sans-serif;
+}
+
+.cart-item-main-info {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  gap: 84px;
+  margin-bottom: 20px;
+}

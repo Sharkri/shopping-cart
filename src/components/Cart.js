@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import "../styles/Cart.css";
 import CartItem from "./CartItem";
 
-function Cart({ cart, onChange, onDecrement, onIncrement }) {
+function Cart({ cart, onChange, onDecrement, onIncrement, onRemove }) {
   return (
     <div className="cart">
       <h2 className="cart-header">Your cart</h2>
@@ -26,6 +26,7 @@ function Cart({ cart, onChange, onDecrement, onIncrement }) {
               onChange={onChange}
               onDecrement={onDecrement}
               onIncrement={onIncrement}
+              onRemove={onRemove}
             />
           ))
         )}

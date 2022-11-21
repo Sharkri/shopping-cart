@@ -61,3 +61,12 @@ it("calls onIncrement with correct argument", () => {
 
   expect(onIncrementMock).toHaveBeenCalledWith(item);
 });
+
+it("calls onRemove with correct argument (the item's id)", () => {
+  const onRemoveMock = jest.fn();
+  render(<CartItem item={item} onRemove={onRemoveMock} />);
+  const remove = screen.getByRole("button", { name: /Remove item/i });
+  userEvent.click(remove);
+
+  expect(onRemoveMock).toHaveBeenCalledWith(item.id);
+});

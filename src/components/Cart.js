@@ -5,25 +5,31 @@ import CartItem from "./CartItem";
 function Cart({ cart, onChange, onDecrement, onIncrement }) {
   return (
     <div className="cart">
-      <h1>Your cart</h1>
+      <h2 className="cart-header">Your cart</h2>
 
-      {!cart?.length ? (
-        <>
-          <p>Your cart is empty</p>
-          <Link to="/shop">Continue shopping</Link>
-        </>
-      ) : (
-        // Map through each item in cart array and display it
-        cart.map((item) => (
-          <CartItem
-            item={item}
-            key={item.id}
-            onChange={onChange}
-            onDecrement={onDecrement}
-            onIncrement={onIncrement}
-          />
-        ))
-      )}
+      <div className="cart-content">
+        {!cart?.length ? (
+          <div className="empty-cart">
+            <p className="empty-cart-text">
+              There are currently no items in your cart.
+            </p>
+            <Link to="/shop" className="continue-shopping">
+              Continue shopping
+            </Link>
+          </div>
+        ) : (
+          // Map through each item in cart array and display it
+          cart.map((item) => (
+            <CartItem
+              item={item}
+              key={item.id}
+              onChange={onChange}
+              onDecrement={onDecrement}
+              onIncrement={onIncrement}
+            />
+          ))
+        )}
+      </div>
     </div>
   );
 }

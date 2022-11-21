@@ -29,10 +29,12 @@ jest.mock("react-router-dom", () => ({
   Link: ({ to, children }) => <a href={to}>{children}</a>,
 }));
 
-it('renders "Your cart is empty" and a link to head to the shop if given an empty cart', () => {
+it("renders empty cart message and a link to head to the shop if given an empty cart", () => {
   render(<Cart cart={[]} />);
 
-  expect(screen.getByText(/Your cart is empty/i)).toBeInTheDocument();
+  expect(
+    screen.getByText(/There are currently no items in your cart./i)
+  ).toBeInTheDocument();
   expect(
     screen.getByRole("link", { name: /Continue shopping/i })
   ).toHaveAttribute("href", "/shop");

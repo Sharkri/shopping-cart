@@ -12,6 +12,7 @@ import ProductPage from "./components/ProductPage";
 const App = () => {
   // Copy JSON to not modify directly
   let allProducts = JSON.parse(JSON.stringify(productsJson));
+
   // Require images to load properly
   allProducts.forEach((product) => {
     try {
@@ -29,25 +30,44 @@ const App = () => {
 
   // Increments product quantity
   function addToCart(product, quantity) {
-    setCart((cart) => {
-      const productIndex = cart.findIndex((item) => item.id === product.id);
+    setCart((prevCart) => {
+      const productIndex = prevCart.findIndex((item) => item.id === product.id);
       // If product has not been added to cart before
-      if (productIndex === -1) cart.push({ ...product, quantity });
-      else cart[productIndex].quantity += quantity;
+      if (productIndex === -1) prevCart.push({ ...product, quantity });
+      else prevCart[productIndex].quantity += quantity;
 
-      return cart;
+      return prevCart;
     });
   }
 
-  function onCartChange(productId, quantity) {
-    if (quantity <= 0) {
-      setCart(cart.filter((item) => item.id !== productId));
+  function deleteFromCart(productId) {
+    setCart((prevCart) =>
+      prevCart.filter((product) => product.id !== productId)
+    );
+  }
+
+  function onCartChange(productId, newQuantity) {
+    if (newQuantity <= 0) {
+      deleteFromCart(productId);
       return;
     }
 
-    setCart(
-      cart.map((item) => {
-        if (item.id === productId) return { ...item, quantity };
+    setCart((prevCart) =>
+      prevCart.map((item) => {
+        if (item.id === productId) item.quantity = newQuantity;
+        return item;
+      })
+    );
+  }
+
+  function decrementCartItem(product) {
+    if (product.quantity === 1) {
+      deleteFromCart(product.id);
+    }
+
+    setCart((prevCart) =>
+      prevCart.map((item) => {
+        if (item.id === product.id) item.quantity--;
         return item;
       })
     );
@@ -86,7 +106,7 @@ const App = () => {
           ),
 
           path: `/shop/${product.path}`,
-          id: product.id,
+          id: uniqid(),
         })),
       ]}
     />

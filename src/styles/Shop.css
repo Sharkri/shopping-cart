@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 32px;
+  gap: 42px;
   padding-left: var(--horizontal-spacing);
   padding-right: var(--horizontal-spacing);
   margin-top: 24px;

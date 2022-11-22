@@ -92,8 +92,6 @@ const App = () => {
 
   const shuffled = shuffle(allProducts);
 
-  // Max featured items wanted is 3
-
   return (
     <RouteSwitch
       Header={() => (
@@ -110,8 +108,8 @@ const App = () => {
         {
           element: (
             <Home
-              // max shuffled items is 3
-              featured={shuffled.length > 3 ? shuffled.slice(0, 3) : shuffled}
+              // max shuffled items is 4
+              featured={shuffled.length > 4 ? shuffled.slice(0, 4) : shuffled}
             />
           ),
           path: "/",

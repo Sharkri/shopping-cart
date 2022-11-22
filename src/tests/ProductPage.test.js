@@ -63,8 +63,6 @@ describe("quantity", () => {
     expect(input).toHaveValue(1);
     userEvent.type(input, "0");
     expect(input).toHaveValue(10);
-    userEvent.type(input, "2");
-    expect(input).toHaveValue(102);
   });
 
   it("should increment and decrement by 1", () => {
@@ -120,4 +118,17 @@ it("should not add to cart if number has decimal", () => {
 
   userEvent.click(addToCart);
   expect(mockAddToCart).not.toHaveBeenCalled();
+});
+
+it("should not allow quantity to go above 99", () => {
+  render(<ProductPage product={product} />);
+  const input = screen.getByRole("spinbutton");
+  userEvent.type(input, "1234");
+
+  expect(input).toHaveValue(99);
+
+  const increment = screen.getByRole("button", { name: "increment" });
+  userEvent.click(increment);
+
+  expect(input).toHaveValue(99);
 });

@@ -11,6 +11,7 @@
   flex-wrap: wrap;
   gap: 80px;
   justify-content: center;
+  width: 100%;
 }
 
 .product-top {
@@ -23,6 +24,7 @@
   display: flex;
   flex-direction: column;
   gap: 14px;
+  width: clamp(125px, 90%, 235px);
 }
 
 .product-price {
@@ -42,7 +44,6 @@
 .product-bottom {
   display: flex;
   flex-direction: column;
-  align-items: stretch;
   gap: 16px;
 }
 

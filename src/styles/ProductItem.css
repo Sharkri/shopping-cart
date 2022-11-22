@@ -8,6 +8,7 @@
   border-radius: 10px;
   box-shadow: rgb(0 0 0 / 8%) 0px 4px 15px;
   transition: box-shadow 0.25s ease-in-out 0s;
+  max-width: 228px;
 }
 
 .shop-item:hover {
@@ -18,8 +19,8 @@
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
   overflow: hidden;
-  width: 224px;
-  height: 224px;
+  width: 228px;
+  height: 228px;
 }
 
 .product-image {

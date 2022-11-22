@@ -5,7 +5,7 @@
     "description": "",
     "price": "68.99",
     "prefix": "$",
-    "image": "beige-couch.png",
+    "image": "beige-sofa.png",
     "id": "0"
   },
   {
@@ -16,5 +16,14 @@
     "prefix": "$",
     "image": "wooden-bed.png",
     "id": "1"
+  },
+  {
+    "name": "White Wooden Cabinet",
+    "path": "/shop/white-wooden-cabinet",
+    "description": "",
+    "price": "79.97",
+    "prefix": "$",
+    "image": "white-wooden-cabinet.png",
+    "id": "2"
   }
 ]

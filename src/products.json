@@ -3,9 +3,18 @@
     "name": "Beige Sofa",
     "path": "/shop/beige-sofa",
     "description": "",
-    "price": "29.99",
+    "price": "68.99",
     "prefix": "$",
     "image": "beige-couch.png",
     "id": "0"
+  },
+  {
+    "name": "Wooden Bed",
+    "path": "/shop/wooden-bed",
+    "description": "",
+    "price": "249.99",
+    "prefix": "$",
+    "image": "wooden-bed.png",
+    "id": "1"
   }
 ]

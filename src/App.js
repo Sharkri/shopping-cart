@@ -5,14 +5,17 @@ import Shop from "./components/Shop";
 import uniqid from "uniqid";
 import Cart from "./components/Cart";
 import "@fortawesome/fontawesome-free/css/all.min.css";
-import productsJson from "./products.json";
+import productsData from "./products.json";
 import RouteSwitch from "./RouteSwitch";
 import ProductPage from "./components/ProductPage";
 
 const App = () => {
-  // Copy JSON to not modify directly
-  const allProducts = JSON.parse(JSON.stringify(productsJson));
-
+  // Copy products to not modify directly
+  const allProducts = JSON.parse(JSON.stringify(productsData));
+  const images = require.context("./images", true);
+  allProducts.forEach((prod) => {
+    prod.image = images(`./${prod.image}`);
+  });
   // Will implement search products on this later
   const [products, setProducts] = useState(allProducts);
   const [cart, setCart] = useState([]);

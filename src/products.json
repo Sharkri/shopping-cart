@@ -5,7 +5,7 @@
     "description": "",
     "price": "29.99",
     "prefix": "$",
-    "image": "./images/beige-couch.png",
+    "image": "beige-couch.png",
     "id": "0"
   }
 ]

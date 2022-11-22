@@ -21,6 +21,7 @@
   align-items: center;
   flex-direction: column;
   margin-top: 32px;
+  width: clamp(310px, 100%, 500px);
 }
 
 .empty-cart {

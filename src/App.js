@@ -70,6 +70,30 @@ const App = () => {
   const incrementCartItem = (product) =>
     changeCartItemQuantity(product.id, product.quantity + 1);
 
+  function shuffle(array) {
+    let currentIndex = array.length,
+      randomIndex;
+
+    // While there remain elements to shuffle.
+    while (currentIndex) {
+      // Pick a remaining element.
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+
+      // And swap it with the current element.
+      [array[currentIndex], array[randomIndex]] = [
+        array[randomIndex],
+        array[currentIndex],
+      ];
+    }
+
+    return array;
+  }
+
+  const shuffled = shuffle(allProducts);
+
+  // Max featured items wanted is 3
+
   return (
     <RouteSwitch
       Header={() => (
@@ -84,7 +108,12 @@ const App = () => {
       )}
       pages={[
         {
-          element: <Home />,
+          element: (
+            <Home
+              // max shuffled items is 3
+              featured={shuffled.length > 3 ? shuffled.slice(0, 3) : shuffled}
+            />
+          ),
           path: "/",
           id: uniqid(),
         },

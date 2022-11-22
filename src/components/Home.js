@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 import "../styles/Home.css";
 import homepage from "../images/homepage.jpg";
+import ProductItem from "./ProductItem";
 
-function Home() {
+function Home({ featured = [] }) {
   return (
     <div className="home">
       <section className="top-section">
@@ -21,7 +22,9 @@ function Home() {
 
       <section className="bottom-section">
         <h1 className="bottom-section-heading">Featured Items</h1>
-        {/* Add featured products in here */}
+        {featured.map((product) => (
+          <ProductItem product={product} key={product.id} />
+        ))}
       </section>
     </div>
   );

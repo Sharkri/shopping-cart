@@ -12,7 +12,8 @@ const product = {
   name: "Product Name",
   description: "This product is cool.",
   path: "/products/cool-product",
-  price: "$69.99",
+  price: "69.99",
+  prefix: "$",
   image: "test-image.png",
 };
 

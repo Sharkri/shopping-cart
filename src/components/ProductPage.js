@@ -29,7 +29,7 @@ export default function ProductPage({ product, onAddToCart }) {
           <div className="product-top">
             <div className="main-product-info">
               <h2 className="product-name">{product.name}</h2>
-              <p className="product-price">{product.price}</p>
+              <p className="product-price">{`${product.prefix}${product.price}`}</p>
             </div>
 
             <p>{product.description || "No description provided."}</p>

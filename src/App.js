@@ -76,9 +76,9 @@ const App = () => {
         <Header
           cartAmount={
             cart.length &&
-            cart.reduce((prev, curr) => prev.quantity + curr.quantity, {
-              quantity: 0,
-            })
+            cart.reduce((accumulator, curr) => {
+              return accumulator + curr.quantity;
+            }, 0)
           }
         />
       )}
@@ -108,9 +108,9 @@ const App = () => {
                 cart.length &&
                 (+cart
                   .reduce(
-                    (prev, curr) =>
-                      prev.price * prev.quantity + curr.price * curr.quantity,
-                    { price: 0, quantity: 0 }
+                    (accumulator, curr) =>
+                      accumulator + curr.price * curr.quantity,
+                    0
                   )
                   .toFixed(2)).toLocaleString()
               }

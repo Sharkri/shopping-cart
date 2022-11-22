@@ -39,7 +39,7 @@ it("renders empty cart message and a link to head to the shop if given an empty 
     screen.getByRole("link", { name: /Continue shopping/i })
   ).toHaveAttribute("href", "/shop");
 
-  expect(screen.queryByText("Subtotal: 5.10")).not.toBeInTheDocument();
+  expect(screen.queryByText("$5.10")).not.toBeInTheDocument();
 });
 
 it("renders multiple cart items properly", () => {
@@ -51,7 +51,7 @@ it("renders multiple cart items properly", () => {
 });
 
 it("should display subtotal properly", () => {
-  render(<Cart cart={defaultCart} subtotal="$120.43" />);
+  render(<Cart cart={defaultCart} subtotal="120.43" />);
 
-  expect(screen.getByText("Subtotal: $120.43")).toBeInTheDocument();
+  expect(screen.getByText("$120.43")).toBeInTheDocument();
 });

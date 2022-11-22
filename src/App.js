@@ -14,7 +14,9 @@ const App = () => {
   // Copy products to not modify directly
   const allProducts = JSON.parse(JSON.stringify(productsData));
 
-  allProducts.forEach((product) => (product.image = loadImage(product.image)));
+  allProducts.forEach((product) => {
+    product.image = loadImage(product.image);
+  });
 
   // Will implement search products on this later
   const [products, setProducts] = useState(allProducts);

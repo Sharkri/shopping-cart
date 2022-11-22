@@ -41,6 +41,18 @@ const App = () => {
       return;
     }
 
+    // if quantity greater than 99, set it to 99
+    if (newQuantity > 99) {
+      setCart(
+        cart.map((item) => {
+          if (item.id === productId) item.quantity = 99;
+          return item;
+        })
+      );
+
+      return;
+    }
+
     setCart(
       cart.map((item) => {
         if (item.id === productId) item.quantity = newQuantity;
@@ -64,6 +76,9 @@ const App = () => {
   }
 
   function incrementCartItem(product) {
+    // Max quantity set to 99
+    if (product.quantity === 99) return;
+
     setCart(
       cart.map((item) => {
         if (item.id === product.id) item.quantity += 1;

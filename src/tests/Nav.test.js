@@ -36,4 +36,14 @@ describe("nav", () => {
 
     expect(screen.queryByText(0)).not.toBeInTheDocument();
   });
+
+  it("should display 99+ if cart amount is over 99", () => {
+    render(
+      <BrowserRouter>
+        <Nav cartAmount={69420} />
+      </BrowserRouter>
+    );
+
+    expect(screen.getByText("99+")).toBeInTheDocument();
+  });
 });

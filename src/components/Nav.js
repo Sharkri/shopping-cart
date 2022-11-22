@@ -9,7 +9,9 @@ function Nav({ cartAmount }) {
       <Link to="/cart" className="cart-link">
         <i className="fa-solid fa-cart-shopping" />
         {cartAmount ? (
-          <span className="amount-in-cart">{cartAmount}</span>
+          <span className="amount-in-cart">
+            {cartAmount > 99 ? "99+" : cartAmount}
+          </span>
         ) : null}
       </Link>
     </nav>

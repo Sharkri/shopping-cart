@@ -4,8 +4,8 @@ header {
   justify-content: space-between;
   padding-top: 18px;
   padding-bottom: 18px;
-  background-color: var(--blue);
   position: sticky;
+  background-color: var(--blue);
   top: 0;
   padding-left: var(--horizontal-spacing);
   padding-right: var(--horizontal-spacing);

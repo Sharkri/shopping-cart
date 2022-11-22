@@ -13,6 +13,8 @@ jest.mock("../products.json", () => [
   },
 ]);
 
+jest.mock("../helpers/loadImage.js", () => (image) => image);
+
 jest.mock("../components/Shop.js", () => ({ products }) => (
   <div data-testid="products">{JSON.stringify(products)}</div>
 ));

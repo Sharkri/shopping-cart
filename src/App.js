@@ -8,14 +8,14 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import productsData from "./products.json";
 import RouteSwitch from "./RouteSwitch";
 import ProductPage from "./components/ProductPage";
+import loadImage from "./helpers/loadImage";
 
 const App = () => {
   // Copy products to not modify directly
   const allProducts = JSON.parse(JSON.stringify(productsData));
-  const images = require.context("./images", true);
-  allProducts.forEach((prod) => {
-    prod.image = images(`./${prod.image}`);
-  });
+
+  allProducts.forEach((product) => (product.image = loadImage(product.image)));
+
   // Will implement search products on this later
   const [products, setProducts] = useState(allProducts);
   const [cart, setCart] = useState([]);

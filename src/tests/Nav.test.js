@@ -26,4 +26,14 @@ describe("nav", () => {
 
     expect(screen.getByText(27)).toBeInTheDocument();
   });
+
+  it("does not show amount in cart if is 0", () => {
+    render(
+      <BrowserRouter>
+        <Nav cartAmount={0} />
+      </BrowserRouter>
+    );
+
+    expect(screen.queryByText(0)).not.toBeInTheDocument();
+  });
 });

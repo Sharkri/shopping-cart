@@ -25,5 +25,14 @@
     "prefix": "$",
     "image": "white-wooden-cabinet.jpg",
     "id": "2"
+  },
+  {
+    "name": "cat",
+    "path": "/shop/cat",
+    "description": "",
+    "price": "999.99",
+    "prefix": "$",
+    "image": "cat.jpg",
+    "id": "3"
   }
 ]

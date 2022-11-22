@@ -90,7 +90,7 @@ const App = () => {
     return array;
   }
 
-  const shuffled = shuffle(allProducts);
+  const shuffled = shuffle([...allProducts]);
 
   return (
     <RouteSwitch

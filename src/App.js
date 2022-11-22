@@ -32,6 +32,15 @@ const App = () => {
     setCart(cart.filter((product) => product.id !== productId));
   }
 
+  function changeCartItemQuantity(productId, newQuantity) {
+    setCart(
+      cart.map((item) => {
+        if (item.id === productId) item.quantity = newQuantity;
+        return item;
+      })
+    );
+  }
+
   function onCartChange(productId, newQuantity) {
     // if new quantity is not a whole number
     if (newQuantity % 1) return;
@@ -43,22 +52,11 @@ const App = () => {
 
     // if quantity greater than 99, set it to 99
     if (newQuantity > 99) {
-      setCart(
-        cart.map((item) => {
-          if (item.id === productId) item.quantity = 99;
-          return item;
-        })
-      );
-
+      changeCartItemQuantity(productId, 99);
       return;
     }
 
-    setCart(
-      cart.map((item) => {
-        if (item.id === productId) item.quantity = newQuantity;
-        return item;
-      })
-    );
+    changeCartItemQuantity(productId, newQuantity);
   }
 
   function decrementCartItem(product) {
@@ -67,24 +65,14 @@ const App = () => {
       return;
     }
 
-    setCart(
-      cart.map((item) => {
-        if (item.id === product.id) item.quantity -= 1;
-        return item;
-      })
-    );
+    changeCartItemQuantity(product.id, product.quantity - 1);
   }
 
   function incrementCartItem(product) {
     // Max quantity set to 99
     if (product.quantity === 99) return;
 
-    setCart(
-      cart.map((item) => {
-        if (item.id === product.id) item.quantity += 1;
-        return item;
-      })
-    );
+    changeCartItemQuantity(product.id, product.quantity + 1);
   }
 
   return (

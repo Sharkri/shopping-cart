@@ -1,5 +1,4 @@
 .shop-item {
-  padding: 18px;
   background-color: white;
   cursor: pointer;
   animation: 0.4s render ease;
@@ -16,6 +15,8 @@
 }
 
 .product-image-container {
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
   overflow: hidden;
   width: 224px;
   height: 224px;
@@ -32,16 +33,23 @@
   transform: scale(1.17);
 }
 
+.shop-item-info {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
 .shop-item-product-name {
-  font-size: 1.2rem;
+  font-family: "Montserrat-SemiBold";
 }
 
 .shop-item-product-price {
   color: green;
-  line-height: 1.6;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.7px;
   font-weight: normal;
   font-family: "Montserrat";
+  font-size: 1.1rem;
 }
 
 @keyframes render {

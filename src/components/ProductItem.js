@@ -7,8 +7,10 @@ export default function ProductItem({ product }) {
       <div className="product-image-container">
         <img src={product.image} alt={product.name} className="product-image" />
       </div>
-      <h2 className="shop-item-product-name">{product.name}</h2>
-      <p className="shop-item-product-price">{`${product.prefix}${product.price}`}</p>
+      <div className="shop-item-info">
+        <p className="shop-item-product-name">{product.name}</p>
+        <p className="shop-item-product-price">{`${product.prefix}${product.price}`}</p>
+      </div>
     </Link>
   );
 }

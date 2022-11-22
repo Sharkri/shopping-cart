@@ -22,9 +22,13 @@ function Home({ featured = [] }) {
 
       <section className="bottom-section">
         <h1 className="bottom-section-heading">Featured Items</h1>
-        {featured.map((product) => (
-          <ProductItem product={product} key={product.id} />
-        ))}
+        <ul className="featured-items">
+          {featured.map((product) => (
+            <li key={product.id}>
+              <ProductItem product={product} />
+            </li>
+          ))}
+        </ul>
       </section>
     </div>
   );

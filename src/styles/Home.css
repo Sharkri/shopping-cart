@@ -55,12 +55,25 @@
 /* Bottom Section */
 
 .bottom-section {
-  margin-top: 2rem;
+  padding: 1.5rem;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+  gap: 18px;
 }
 
 .bottom-section-heading {
   text-transform: uppercase;
   letter-spacing: 1px;
+}
+
+.featured-items {
+  align-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(228px, 1fr));
+  gap: 24px;
+  justify-items: center;
+  width: 100%;
+  max-width: 1200px;
 }

@@ -5,7 +5,7 @@
     "description": "",
     "price": "68.99",
     "prefix": "$",
-    "image": "beige-sofa.png",
+    "image": "beige-sofa.jpg",
     "id": "0"
   },
   {
@@ -14,7 +14,7 @@
     "description": "",
     "price": "249.99",
     "prefix": "$",
-    "image": "wooden-bed.png",
+    "image": "wooden-bed.jpg",
     "id": "1"
   },
   {
@@ -23,7 +23,7 @@
     "description": "",
     "price": "79.97",
     "prefix": "$",
-    "image": "white-wooden-cabinet.png",
+    "image": "white-wooden-cabinet.jpg",
     "id": "2"
   }
 ]

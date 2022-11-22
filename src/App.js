@@ -101,13 +101,13 @@ const App = () => {
               subtotal={
                 // Make sure cart is not empty before reducing
                 cart.length &&
-                +cart
+                (+cart
                   .reduce(
                     (prev, curr) =>
                       prev.price * prev.quantity + curr.price * curr.quantity,
                     { price: 0, quantity: 0 }
                   )
-                  .toFixed(2)
+                  .toFixed(2)).toLocaleString()
               }
             />
           ),

@@ -1,18 +1,47 @@
 .shop-item {
   padding: 18px;
-  background-color: aliceblue;
+  background-color: white;
   cursor: pointer;
-  transition: 0.2s ease;
-  animation: 0.3s render;
+  animation: 0.4s render ease;
   color: black;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  box-shadow: rgb(0 0 0 / 8%) 0px 4px 15px;
+  transition: box-shadow 0.25s ease-in-out 0s;
 }
 
 .shop-item:hover {
-  transform: scale(1.1);
+  box-shadow: rgb(0 0 0 / 15%) 0px 6px 25px;
+}
+
+.product-image-container {
+  overflow: hidden;
+  width: 224px;
+  height: 224px;
 }
 
 .product-image {
-  width: 120px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.4s;
+}
+
+.shop-item:hover .product-image {
+  transform: scale(1.17);
+}
+
+.shop-item-product-name {
+  font-size: 1.2rem;
+}
+
+.shop-item-product-price {
+  color: green;
+  line-height: 1.6;
+  letter-spacing: 0.5px;
+  font-weight: normal;
+  font-family: "Montserrat";
 }
 
 @keyframes render {

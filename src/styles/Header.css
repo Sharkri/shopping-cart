@@ -9,4 +9,5 @@ header {
   top: 0;
   padding-left: var(--horizontal-spacing);
   padding-right: var(--horizontal-spacing);
+  z-index: 1;
 }

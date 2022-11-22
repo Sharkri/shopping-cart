@@ -3,7 +3,7 @@
     "name": "Beige Sofa",
     "path": "/shop/beige-sofa",
     "description": "",
-    "price": "68.99",
+    "price": "129.99",
     "prefix": "$",
     "image": "beige-sofa.jpg",
     "id": "0"
@@ -12,7 +12,7 @@
     "name": "Wooden Bed",
     "path": "/shop/wooden-bed",
     "description": "",
-    "price": "249.99",
+    "price": "269.99",
     "prefix": "$",
     "image": "wooden-bed.jpg",
     "id": "1"
@@ -21,7 +21,7 @@
     "name": "White Wooden Cabinet",
     "path": "/shop/white-wooden-cabinet",
     "description": "",
-    "price": "79.97",
+    "price": "87.98",
     "prefix": "$",
     "image": "white-wooden-cabinet.jpg",
     "id": "2"

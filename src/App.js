@@ -50,12 +50,6 @@ const App = () => {
       return;
     }
 
-    // if quantity greater than 99, set it to 99
-    if (newQuantity > 99) {
-      changeCartItemQuantity(productId, 99);
-      return;
-    }
-
     changeCartItemQuantity(productId, newQuantity);
   }
 
@@ -68,12 +62,8 @@ const App = () => {
     changeCartItemQuantity(product.id, product.quantity - 1);
   }
 
-  function incrementCartItem(product) {
-    // Max quantity set to 99
-    if (product.quantity === 99) return;
-
+  const incrementCartItem = (product) =>
     changeCartItemQuantity(product.id, product.quantity + 1);
-  }
 
   return (
     <RouteSwitch

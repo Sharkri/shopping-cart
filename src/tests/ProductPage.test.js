@@ -119,16 +119,3 @@ it("should not add to cart if number has decimal", () => {
   userEvent.click(addToCart);
   expect(mockAddToCart).not.toHaveBeenCalled();
 });
-
-it("should not allow quantity to go above 99", () => {
-  render(<ProductPage product={product} />);
-  const input = screen.getByRole("spinbutton");
-  userEvent.type(input, "1234");
-
-  expect(input).toHaveValue(99);
-
-  const increment = screen.getByRole("button", { name: "increment" });
-  userEvent.click(increment);
-
-  expect(input).toHaveValue(99);
-});

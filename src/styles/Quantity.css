@@ -37,9 +37,3 @@
 .quantity-input:focus {
   border: 1px solid blue;
 }
-
-.decrement[data-quantity="1"],
-.increment[data-quantity="99"] {
-  color: rgba(0, 0, 0, 0.4);
-  cursor: not-allowed;
-}

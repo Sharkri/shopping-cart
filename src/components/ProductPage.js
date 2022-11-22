@@ -6,15 +6,8 @@ import Quantity from "./Quantity";
 export default function ProductPage({ product, onAddToCart }) {
   const [quantity, setQuantity] = useState(1);
 
-  const onInputChange = (value) => {
-    if (value <= 99) setQuantity(value === "" ? value : +value);
-    else setQuantity(99);
-  };
-  const increment = () =>
-    setQuantity((quantity) => {
-      if (quantity < 99) return quantity + 1;
-      return quantity;
-    });
+  const onInputChange = (value) => setQuantity(value === "" ? value : +value);
+  const increment = () => setQuantity((quantity) => quantity + 1);
   const decrement = () =>
     setQuantity((quantity) => {
       // Don't allow quantity to go below 1

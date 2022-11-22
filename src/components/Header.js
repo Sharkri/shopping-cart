@@ -2,11 +2,11 @@ import "../styles/Header.css";
 import Nav from "./Nav";
 import Title from "./Title";
 
-function Header() {
+function Header({ cartAmount }) {
   return (
     <header>
       <Title title="idk" />
-      <Nav />
+      <Nav cartAmount={cartAmount} />
     </header>
   );
 }

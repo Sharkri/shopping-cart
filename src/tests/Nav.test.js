@@ -16,4 +16,14 @@ describe("nav", () => {
       "/shop"
     );
   });
+
+  it("should display amount in cart", () => {
+    render(
+      <BrowserRouter>
+        <Nav cartAmount={27} />
+      </BrowserRouter>
+    );
+
+    expect(screen.getByText(27)).toBeInTheDocument();
+  });
 });

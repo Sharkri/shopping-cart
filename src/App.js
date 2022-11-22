@@ -77,7 +77,16 @@ const App = () => {
 
   return (
     <RouteSwitch
-      Header={() => <Header />}
+      Header={() => (
+        <Header
+          cartAmount={
+            cart.length &&
+            cart.reduce((prev, curr) => prev.quantity + curr.quantity, {
+              quantity: 0,
+            })
+          }
+        />
+      )}
       pages={[
         {
           element: <Home />,

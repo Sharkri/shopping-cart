@@ -48,3 +48,8 @@
   width: 100%;
   text-align: right;
 }
+
+.subtotal-amount {
+  color: green;
+  letter-spacing: 0.5px;
+}

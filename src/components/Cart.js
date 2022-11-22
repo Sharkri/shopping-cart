@@ -37,7 +37,9 @@ function Cart({
               />
             ))}
 
-            <p className="subtotal">Subtotal: {subtotal}</p>
+            <p className="subtotal">
+              Subtotal: <span className="subtotal-amount">${subtotal}</span>
+            </p>
           </>
         )}
       </div>

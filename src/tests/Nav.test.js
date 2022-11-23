@@ -2,6 +2,11 @@ import Nav from "../components/Nav";
 import { render, screen } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
 import "@testing-library/jest-dom";
+import userEvent from "@testing-library/user-event";
+
+jest.mock("../components/Searchbar.js", () => () => (
+  <div>Searchbar Component</div>
+));
 
 describe("nav", () => {
   it("should navigate to href properly", async () => {
@@ -68,5 +73,25 @@ describe("nav", () => {
     const cartLink = screen.getByRole("link", { name: "cart link" });
 
     expect(cartLink.className.includes("shake")).toBeFalsy();
+  });
+
+  describe("search", () => {
+    it("should open Searchbar component on click of magnifying glass", () => {
+      render(
+        <BrowserRouter>
+          <Nav />
+        </BrowserRouter>
+      );
+
+      const openSearchbar = screen.getByRole("button", {
+        name: "open searchbar",
+      });
+
+      expect(screen.queryByText("Searchbar Component")).not.toBeInTheDocument();
+
+      userEvent.click(openSearchbar);
+
+      expect(screen.getByText("Searchbar Component")).toBeInTheDocument();
+    });
   });
 });

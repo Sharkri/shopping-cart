@@ -1,7 +1,11 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import "../styles/Nav.css";
+import Searchbar from "./Searchbar";
 
 function Nav({ cartAmount, canShake }) {
+  const [searchbarIsOpen, setSearchbarIsOpen] = useState(false);
+
   return (
     <nav>
       <Link to="/">Home</Link>
@@ -18,6 +22,14 @@ function Nav({ cartAmount, canShake }) {
           </span>
         ) : null}
       </Link>
+
+      <button
+        aria-label="open searchbar"
+        onClick={() => setSearchbarIsOpen(true)}
+      >
+        <i className="fa-solid fa-magnifying-glass" />
+      </button>
+      {searchbarIsOpen && <Searchbar />}
     </nav>
   );
 }

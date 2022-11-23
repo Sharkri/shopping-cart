@@ -76,10 +76,12 @@ describe("nav", () => {
   });
 
   describe("search", () => {
-    it("should open Searchbar component on click of magnifying glass", () => {
+    it("should call onOpenSearchbar", () => {
+      const mockOnOpenSearchbar = jest.fn();
+
       render(
         <BrowserRouter>
-          <Nav />
+          <Nav onOpenSearchbar={mockOnOpenSearchbar} />
         </BrowserRouter>
       );
 
@@ -87,11 +89,11 @@ describe("nav", () => {
         name: "open searchbar",
       });
 
-      expect(screen.queryByText("Searchbar Component")).not.toBeInTheDocument();
+      expect(mockOnOpenSearchbar).not.toHaveBeenCalled();
 
       userEvent.click(openSearchbar);
 
-      expect(screen.getByText("Searchbar Component")).toBeInTheDocument();
+      expect(mockOnOpenSearchbar).toHaveBeenCalledTimes(1);
     });
   });
 });

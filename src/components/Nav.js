@@ -1,11 +1,7 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import "../styles/Nav.css";
-import Searchbar from "./Searchbar";
 
-function Nav({ cartAmount, canShake }) {
-  const [searchbarIsOpen, setSearchbarIsOpen] = useState(false);
-
+function Nav({ cartAmount, canShake, onOpenSearchbar }) {
   return (
     <nav>
       <Link to="/">Home</Link>
@@ -16,20 +12,22 @@ function Nav({ cartAmount, canShake }) {
         aria-label="cart link"
       >
         <i className="fa-solid fa-cart-shopping" />
-        {cartAmount ? (
-          <span className="amount-in-cart">
-            {cartAmount > 99 ? "99+" : cartAmount}
-          </span>
-        ) : null}
+        {
+          // Only show cart amount if it exists
+          cartAmount ? (
+            <span className="amount-in-cart">
+              {
+                // If cart amount is greater than 99, show 99+
+                cartAmount > 99 ? "99+" : cartAmount
+              }
+            </span>
+          ) : null
+        }
       </Link>
 
-      <button
-        aria-label="open searchbar"
-        onClick={() => setSearchbarIsOpen(true)}
-      >
+      <button aria-label="open searchbar" onClick={onOpenSearchbar}>
         <i className="fa-solid fa-magnifying-glass" />
       </button>
-      {searchbarIsOpen && <Searchbar />}
     </nav>
   );
 }

@@ -1,6 +1,6 @@
 import "../styles/Searchbar.css";
 
-export default function Searchbar() {
+export default function Searchbar({ onChange, onClose, query }) {
   return (
     <div className="searchbar-container">
       <div className="search-bar">
@@ -10,11 +10,16 @@ export default function Searchbar() {
           id="search-input"
           placeholder="Search products"
           autoComplete="off"
+          value={query}
+          onChange={(event) => onChange(event.target.value)}
         />
         <button className="query-search">
           <i className="fa-solid fa-magnifying-glass" />
         </button>
       </div>
+      <button aria-label="close" onClick={onClose}>
+        <i className="fa-solid fa-close" />
+      </button>
     </div>
   );
 }

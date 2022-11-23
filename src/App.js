@@ -9,6 +9,7 @@ import productsData from "./products.json";
 import RouteSwitch from "./RouteSwitch";
 import ProductPage from "./components/ProductPage";
 import loadImage from "./helpers/loadImage";
+import Searchbar from "./components/Searchbar";
 
 const App = () => {
   // Copy products to not modify directly
@@ -20,6 +21,7 @@ const App = () => {
 
   // Will implement search products on this later
   const [products, setProducts] = useState(allProducts);
+  const [searchbarIsOpen, setSearchbarIsOpen] = useState(false);
   const [cart, setCart] = useState([]);
   const [canShake, setCanShake] = useState(false);
 
@@ -102,76 +104,79 @@ const App = () => {
   const shuffled = shuffle([...allProducts]);
 
   return (
-    <RouteSwitch
-      Header={() => (
-        <Header
-          cartAmount={
-            cart.length &&
-            cart.reduce((accumulator, curr) => {
-              return accumulator + curr.quantity;
-            }, 0)
-          }
-          canShake={canShake}
-        />
-      )}
-      pages={[
-        {
-          element: (
-            <Home
-              // max shuffled items is 4
-              featured={shuffled.length > 4 ? shuffled.slice(0, 4) : shuffled}
-            />
-          ),
-          path: "/",
-          id: uniqid(),
-        },
+    <>
+      {searchbarIsOpen && <Searchbar />}
+      <RouteSwitch
+        Header={() => (
+          <Header
+            cartAmount={
+              cart.length &&
+              cart.reduce((accumulator, curr) => {
+                return accumulator + curr.quantity;
+              }, 0)
+            }
+            canShake={canShake}
+          />
+        )}
+        pages={[
+          {
+            element: (
+              <Home
+                // max shuffled items is 4
+                featured={shuffled.length > 4 ? shuffled.slice(0, 4) : shuffled}
+              />
+            ),
+            path: "/",
+            id: uniqid(),
+          },
 
-        {
-          element: <Shop products={products} />,
-          path: "/shop",
-          id: uniqid(),
-        },
+          {
+            element: <Shop products={products} />,
+            path: "/shop",
+            id: uniqid(),
+          },
 
-        {
-          element: (
-            <Cart
-              cart={cart}
-              onChange={onCartChange}
-              onDecrement={decrementCartItem}
-              onIncrement={incrementCartItem}
-              onRemove={deleteFromCart}
-              subtotal={
-                // Make sure cart is not empty before reducing
-                cart.length &&
-                (+cart
-                  .reduce(
-                    (accumulator, curr) =>
-                      accumulator + curr.price * curr.quantity,
-                    0
-                  )
-                  .toFixed(2)).toLocaleString()
-              }
-            />
-          ),
-          path: "/cart",
-          id: uniqid(),
-        },
+          {
+            element: (
+              <Cart
+                cart={cart}
+                onChange={onCartChange}
+                onDecrement={decrementCartItem}
+                onIncrement={incrementCartItem}
+                onRemove={deleteFromCart}
+                subtotal={
+                  // Make sure cart is not empty before reducing
+                  cart.length &&
+                  (+cart
+                    .reduce(
+                      (accumulator, curr) =>
+                        accumulator + curr.price * curr.quantity,
+                      0
+                    )
+                    .toFixed(2)).toLocaleString()
+                }
+              />
+            ),
+            path: "/cart",
+            id: uniqid(),
+          },
 
-        // Create route for all products
-        ...allProducts.map((product) => ({
-          element: (
-            <ProductPage
-              product={product}
-              onAddToCart={addToCart}
-              key={product.id}
-            />
-          ),
+          // Create route for all products
+          ...allProducts.map((product) => ({
+            element: (
+              <ProductPage
+                product={product}
+                onAddToCart={addToCart}
+                key={product.id}
+              />
+            ),
 
-          path: product.path,
-          id: uniqid(),
-        })),
-      ]}
-    />
+            path: product.path,
+            id: uniqid(),
+          })),
+        ]}
+      />
+    </>
   );
 };
 

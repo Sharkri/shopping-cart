@@ -81,7 +81,8 @@ const App = () => {
   const incrementCartItem = (product) =>
     changeCartItemQuantity(product.id, product.quantity + 1);
 
-  const onSearchbarOpen = () => setIsSearchbarOpen(true);
+  const toggleIsSearchbarOpen = () =>
+    setIsSearchbarOpen((isSearchbarOpen) => !isSearchbarOpen);
 
   function shuffle(array) {
     let currentIndex = array.length,
@@ -107,7 +108,7 @@ const App = () => {
 
   return (
     <>
-      {isSearchbarOpen && <Searchbar />}
+      {isSearchbarOpen && <Searchbar onClose={toggleIsSearchbarOpen} />}
       <RouteSwitch
         Header={() => (
           <Header
@@ -118,7 +119,7 @@ const App = () => {
               }, 0)
             }
             canShake={canShake}
-            onSearchbarOpen={onSearchbarOpen}
+            onSearchbarOpen={toggleIsSearchbarOpen}
           />
         )}
         pages={[

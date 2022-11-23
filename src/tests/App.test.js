@@ -20,7 +20,14 @@ jest.mock("../components/Shop.js", () => ({ products }) => (
   <div data-testid="products">{JSON.stringify(products)}</div>
 ));
 
-jest.mock("../components/Searchbar.js", () => () => <div>searchbar open</div>);
+jest.mock("../components/Searchbar.js", () => ({ onClose }) => (
+  <>
+    <div>searchbar open</div>
+    <button data-testid="close" onClick={onClose}>
+      close
+    </button>
+  </>
+));
 
 it("should fetch products properly", () => {
   render(<App />);
@@ -37,14 +44,16 @@ it("should fetch products properly", () => {
   });
 });
 
-it("should open searchbar on click", () => {
+it("should open and close searchbar on click", () => {
   render(<App />);
 
   const openSearchbar = screen.getByRole("button", { name: "open searchbar" });
 
-  expect(screen.queryByText("searchbar open")).not.toBeInTheDocument();
-
   userEvent.click(openSearchbar);
 
   expect(screen.getByText("searchbar open")).toBeInTheDocument();
+
+  userEvent.click(screen.getByTestId("close"));
+
+  expect(screen.queryByText("searchbar open")).not.toBeInTheDocument();
 });

@@ -82,4 +82,9 @@
 .go-back {
   color: black;
   width: fit-content;
+  background-color: transparent;
+  border: none;
+}
+
+@media screen {
 }

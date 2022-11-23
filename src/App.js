@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Home from "./components/Home";
 import Header from "./components/Header";
 import Shop from "./components/Shop";

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link as button, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "../styles/ProductPage.css";
 import Quantity from "./Quantity";
 

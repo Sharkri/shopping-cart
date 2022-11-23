@@ -9,10 +9,11 @@ nav a {
 
 .cart-link {
   position: relative;
+  animation: shake 0.9s ease;
 }
 
 .amount-in-cart {
-  background-color: #65a30d;
+  background-color: #0da371;
   border-radius: 50%;
   top: 14px;
   left: 12px;
@@ -23,4 +24,22 @@ nav a {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@keyframes shake {
+  0% {
+    transform: rotate(10deg);
+  }
+  25% {
+    transform: rotate(-10deg);
+  }
+  50% {
+    transform: rotate(20deg);
+  }
+  75% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
 }

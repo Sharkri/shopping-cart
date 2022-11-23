@@ -21,6 +21,7 @@ const App = () => {
   // Will implement search products on this later
   const [products, setProducts] = useState(allProducts);
   const [cart, setCart] = useState([]);
+  const [canShake, setCanShake] = useState(false);
 
   // Increments product quantity
   function addToCart(product, quantity) {
@@ -31,6 +32,14 @@ const App = () => {
     else newCart[productIndex].quantity += quantity;
 
     setCart(newCart);
+
+    // Indicate added to cart by shaking cart
+    cartShake(900);
+  }
+
+  function cartShake(ms) {
+    setCanShake(true);
+    setTimeout(() => setCanShake(false), ms);
   }
 
   function deleteFromCart(productId) {
@@ -102,6 +111,7 @@ const App = () => {
               return accumulator + curr.quantity;
             }, 0)
           }
+          canShake={canShake}
         />
       )}
       pages={[

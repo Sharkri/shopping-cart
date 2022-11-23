@@ -1,12 +1,16 @@
 import { Link } from "react-router-dom";
 import "../styles/Nav.css";
 
-function Nav({ cartAmount }) {
+function Nav({ cartAmount, canShake }) {
   return (
     <nav>
       <Link to="/">Home</Link>
       <Link to="/shop">Shop</Link>
-      <Link to="/cart" className="cart-link">
+      <Link
+        to="/cart"
+        className={`cart-link ${canShake ? "shake" : ""}`}
+        aria-label="cart link"
+      >
         <i className="fa-solid fa-cart-shopping" />
         {cartAmount ? (
           <span className="amount-in-cart">

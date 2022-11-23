@@ -9,7 +9,10 @@ nav a {
 
 .cart-link {
   position: relative;
-  animation: shake 0.9s ease;
+}
+
+.cart-link.shake {
+  animation: shake 900ms ease;
 }
 
 .amount-in-cart {

@@ -3,7 +3,7 @@ import Nav from "./Nav";
 import Title from "./Title";
 import { useLocation } from "react-router-dom";
 
-function Header({ cartAmount }) {
+function Header({ cartAmount, canShake }) {
   const { pathname } = useLocation();
   let headerStyles = {};
 
@@ -12,7 +12,7 @@ function Header({ cartAmount }) {
   return (
     <header style={headerStyles}>
       <Title title="idk" />
-      <Nav cartAmount={cartAmount} />
+      <Nav cartAmount={cartAmount} canShake={canShake} />
     </header>
   );
 }

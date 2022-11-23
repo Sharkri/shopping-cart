@@ -46,4 +46,27 @@ describe("nav", () => {
 
     expect(screen.getByText("99+")).toBeInTheDocument();
   });
+
+  it("should add shake", () => {
+    render(
+      <BrowserRouter>
+        <Nav canShake={true} />
+      </BrowserRouter>
+    );
+
+    const cartLink = screen.getByRole("link", { name: "cart link" });
+
+    expect(cartLink.className.includes("shake")).toBeTruthy();
+  });
+  it("should not add shake when canShake is false", () => {
+    render(
+      <BrowserRouter>
+        <Nav canShake={false} />
+      </BrowserRouter>
+    );
+
+    const cartLink = screen.getByRole("link", { name: "cart link" });
+
+    expect(cartLink.className.includes("shake")).toBeFalsy();
+  });
 });

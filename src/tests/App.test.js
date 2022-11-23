@@ -1,5 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import "@testing-library/jest-dom";
 import App from "../App";
 
 jest.mock("../products.json", () => [
@@ -19,6 +20,8 @@ jest.mock("../components/Shop.js", () => ({ products }) => (
   <div data-testid="products">{JSON.stringify(products)}</div>
 ));
 
+jest.mock("../components/Searchbar.js", () => () => <div>searchbar open</div>);
+
 it("should fetch products properly", () => {
   render(<App />);
   const shop = screen.getByRole("link", { name: "Shop" });
@@ -32,4 +35,16 @@ it("should fetch products properly", () => {
     price: "$29.99",
     image: "a.png",
   });
+});
+
+it("should open searchbar on click", () => {
+  render(<App />);
+
+  const openSearchbar = screen.getByRole("button", { name: "open searchbar" });
+
+  expect(screen.queryByText("searchbar open")).not.toBeInTheDocument();
+
+  userEvent.click(openSearchbar);
+
+  expect(screen.getByText("searchbar open")).toBeInTheDocument();
 });

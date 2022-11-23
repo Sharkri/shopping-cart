@@ -77,11 +77,11 @@ describe("nav", () => {
 
   describe("search", () => {
     it("should call onOpenSearchbar", () => {
-      const mockOnOpenSearchbar = jest.fn();
+      const mockOnSearchbarOpen = jest.fn();
 
       render(
         <BrowserRouter>
-          <Nav onOpenSearchbar={mockOnOpenSearchbar} />
+          <Nav onSearchbarOpen={mockOnSearchbarOpen} />
         </BrowserRouter>
       );
 
@@ -89,11 +89,11 @@ describe("nav", () => {
         name: "open searchbar",
       });
 
-      expect(mockOnOpenSearchbar).not.toHaveBeenCalled();
+      expect(mockOnSearchbarOpen).not.toHaveBeenCalled();
 
       userEvent.click(openSearchbar);
 
-      expect(mockOnOpenSearchbar).toHaveBeenCalledTimes(1);
+      expect(mockOnSearchbarOpen).toHaveBeenCalledTimes(1);
     });
   });
 });

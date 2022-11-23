@@ -21,7 +21,7 @@ const App = () => {
 
   // Will implement search products on this later
   const [products, setProducts] = useState(allProducts);
-  const [searchbarIsOpen, setSearchbarIsOpen] = useState(false);
+  const [isSearchbarOpen, setIsSearchbarOpen] = useState(false);
   const [cart, setCart] = useState([]);
   const [canShake, setCanShake] = useState(false);
 
@@ -81,6 +81,8 @@ const App = () => {
   const incrementCartItem = (product) =>
     changeCartItemQuantity(product.id, product.quantity + 1);
 
+  const onSearchbarOpen = () => setIsSearchbarOpen(true);
+
   function shuffle(array) {
     let currentIndex = array.length,
       randomIndex;
@@ -105,7 +107,7 @@ const App = () => {
 
   return (
     <>
-      {searchbarIsOpen && <Searchbar />}
+      {isSearchbarOpen && <Searchbar />}
       <RouteSwitch
         Header={() => (
           <Header
@@ -116,6 +118,7 @@ const App = () => {
               }, 0)
             }
             canShake={canShake}
+            onSearchbarOpen={onSearchbarOpen}
           />
         )}
         pages={[

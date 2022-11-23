@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "../styles/Nav.css";
 
-function Nav({ cartAmount, canShake, onOpenSearchbar }) {
+function Nav({ cartAmount, canShake, onSearchbarOpen }) {
   return (
     <nav>
       <Link to="/">Home</Link>
@@ -25,7 +25,7 @@ function Nav({ cartAmount, canShake, onOpenSearchbar }) {
         }
       </Link>
 
-      <button aria-label="open searchbar" onClick={onOpenSearchbar}>
+      <button aria-label="open searchbar" onClick={onSearchbarOpen}>
         <i className="fa-solid fa-magnifying-glass" />
       </button>
     </nav>

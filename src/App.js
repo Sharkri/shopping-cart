@@ -104,7 +104,7 @@ const App = () => {
     return array;
   }
 
-  const shuffled = shuffle([...allProducts]);
+  const [featured] = useState(shuffle([...allProducts]));
 
   return (
     <>
@@ -127,7 +127,7 @@ const App = () => {
             element: (
               <Home
                 // max shuffled items is 4
-                featured={shuffled.length > 4 ? shuffled.slice(0, 4) : shuffled}
+                featured={featured.length > 4 ? featured.slice(0, 4) : featured}
               />
             ),
             path: "/",

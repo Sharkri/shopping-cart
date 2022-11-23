@@ -4,9 +4,18 @@ import ProductPage from "../components/ProductPage";
 import "@testing-library/user-event";
 import userEvent from "@testing-library/user-event";
 
+const mockNavigate = jest.fn();
+
 jest.mock("react-router-dom", () => ({
   Link: ({ to, children }) => <a href={to}>{children}</a>,
+  useNavigate: () => mockNavigate,
 }));
+
+// const reactRouterDomMock = jest.requireMock("react-router-dom");
+// const navigateMock = jest.fn();
+// reactRouterDomMock.useNavigate = jest
+//   .fn()
+//   .mockReturnValue(jest.fn().mockReturnValue({ navigate: navigateMock }));
 
 const product = {
   name: "Product Name",
@@ -119,4 +128,12 @@ it("should not add to cart if number has decimal", () => {
 
   userEvent.click(addToCart);
   expect(mockAddToCart).not.toHaveBeenCalled();
+});
+
+it("should go back to previous page", () => {
+  render(<ProductPage product={product} />);
+
+  const goBackButton = screen.getByRole("button", { name: /Go back/i });
+  userEvent.click(goBackButton);
+  expect(mockNavigate).toHaveBeenCalledWith(-1);
 });

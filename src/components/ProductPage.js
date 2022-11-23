@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link as button, useNavigate } from "react-router-dom";
 import "../styles/ProductPage.css";
 import Quantity from "./Quantity";
 
 export default function ProductPage({ product, onAddToCart }) {
   const [quantity, setQuantity] = useState(1);
-
+  const navigate = useNavigate();
   const onInputChange = (value) => setQuantity(value === "" ? value : +value);
   const increment = () => setQuantity((quantity) => quantity + 1);
   const decrement = () =>
@@ -53,9 +53,9 @@ export default function ProductPage({ product, onAddToCart }) {
                 Add to cart
               </button>
 
-              <Link to="/shop" className="go-back">
+              <button onClick={() => navigate(-1)} className="go-back">
                 Go back
-              </Link>
+              </button>
             </form>
           </div>
         </div>

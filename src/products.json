@@ -29,7 +29,7 @@
   {
     "name": "cat",
     "path": "/shop/cat",
-    "description": "",
+    "description": "cat",
     "price": "999.99",
     "prefix": "$",
     "image": "cat.jpg",

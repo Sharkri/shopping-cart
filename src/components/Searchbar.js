@@ -17,7 +17,7 @@ export default function Searchbar({ onChange, onClose, query }) {
           <i className="fa-solid fa-magnifying-glass" />
         </button>
       </div>
-      <button aria-label="close" onClick={onClose}>
+      <button aria-label="close" onClick={onClose} className="close-searchbar">
         <i className="fa-solid fa-close" />
       </button>
     </div>

@@ -45,7 +45,7 @@
 }
 
 .image-text {
-  color: rgb(247, 247, 247);
+  color: var(--white);
   font-family: "Montserrat", sans-serif;
   font-weight: normal;
   letter-spacing: 0.5px;

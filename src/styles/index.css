@@ -26,6 +26,7 @@ body {
   --blue: rgb(0, 88, 171);
   --disabled-blue: rgba(0, 88, 171, 0.4);
   --yellow: rgb(251, 217, 20);
+  --white: rgb(247, 247, 247);
   --page-padding: 28px;
   --header-height: 75px;
   height: 100vh;
@@ -52,7 +53,7 @@ a {
   text-decoration: none;
   font-family: "Montserrat-Bold", sans-serif;
   font-weight: bold;
-  color: rgb(247, 247, 247);
+  color: var(--white);
 }
 
 button {

@@ -21,8 +21,8 @@
   padding: 5px 0 5px min(calc(4vw + 16px), 69px);
   outline: none;
   background-color: transparent;
-  caret-color: rgb(247, 247, 247);
-  color: rgb(247, 247, 247);
+  caret-color: var(--white);
+  color: var(--white);
   font-size: min(4vw, 46px);
 }
 
@@ -46,5 +46,5 @@
   left: 4px;
   top: 5px;
   font-size: min(4vw, 46px);
-  color: rgb(247, 247, 247);
+  color: var(--white);
 }

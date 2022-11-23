@@ -2,12 +2,11 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 18px;
-  padding-bottom: 18px;
-  position: sticky;
+  padding: 18px 24px;
+  position: fixed;
   background-color: var(--blue);
   top: 0;
-  padding-left: var(--horizontal-spacing);
-  padding-right: var(--horizontal-spacing);
   z-index: 1;
+  height: var(--header-height);
+  width: 100%;
 }

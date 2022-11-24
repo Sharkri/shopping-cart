@@ -1,6 +1,8 @@
 import Shop from "../components/Shop";
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
+import { MemoryRouter } from "react-router-dom";
+
 jest.mock("../components/ProductItem", () => ({ product }) => (
   <>
     <div data-testid="name">{product.name}</div>
@@ -15,11 +17,7 @@ jest.mock("../components/ProductItem", () => ({ product }) => (
   </>
 ));
 
-jest.mock("react-router-dom", () => ({
-  Link: ({ to, children }) => <a href={to}>{children}</a>,
-}));
-
-let items = [
+const items = [
   {
     name: "product name",
     price: "5.99",
@@ -42,7 +40,11 @@ let items = [
 
 describe("shop", () => {
   it("should render multiple products", () => {
-    render(<Shop products={items} />);
+    render(
+      <MemoryRouter>
+        <Shop products={items} />
+      </MemoryRouter>
+    );
 
     const names = screen.getAllByTestId("name");
     const prices = screen.getAllByTestId("price");
@@ -64,7 +66,11 @@ describe("shop", () => {
   });
 
   it("renders no products found when given an empty array of products", () => {
-    render(<Shop products={[]} />);
+    render(
+      <MemoryRouter>
+        <Shop products={[]} />
+      </MemoryRouter>
+    );
 
     expect(screen.getByText(/No products found/i)).toBeInTheDocument();
     expect(

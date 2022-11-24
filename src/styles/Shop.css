@@ -5,3 +5,25 @@
   flex-wrap: wrap;
   gap: 42px;
 }
+
+.search-results-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 24px;
+  gap: 6px;
+}
+
+.search-results-text {
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: lighter;
+  font-family: "Montserrat-ExtraLight";
+  font-size: 1.6rem;
+}
+
+.results-for-text {
+  font-weight: 600;
+  font-family: "Montserrat-SemiBold";
+  font-size: 0.87rem;
+}

@@ -19,6 +19,11 @@
   src: url("../fonts/Montserrat-Bold.ttf");
 }
 
+@font-face {
+  font-family: "Montserrat-ExtraLight";
+  src: url("../fonts/Montserrat-ExtraLight.ttf");
+}
+
 body {
   font-family: "Montserrat", sans-serif;
   -webkit-font-smoothing: antialiased;

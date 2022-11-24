@@ -83,17 +83,17 @@ describe("shop", () => {
       </MemoryRouter>
     );
 
-    expect(screen.getByText(/Showing results for "prod"/)).toBeInTheDocument();
+    expect(screen.getByText(/1 result for "prod"/i)).toBeInTheDocument();
   });
 
-  it("does not renders showing results for {query} on no query", () => {
+  it("does not renders 'showing results for' if no query", () => {
     render(
       <MemoryRouter>
         <Shop products={items} />
       </MemoryRouter>
     );
 
-    expect(screen.queryByText(/Showing results for/)).not.toBeInTheDocument();
+    expect(screen.queryByText(/search results/i)).not.toBeInTheDocument();
   });
 
   it("renders no products found when query not found", () => {

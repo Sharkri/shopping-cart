@@ -22,7 +22,15 @@ function Shop({ products }) {
 
   return (
     <div className="shop">
-      {query && `Showing results for "${query}"`}
+      {query && (
+        <div className="search-results-info">
+          <h2 className="search-results-text">Search Results</h2>
+          <p className="results-for-text">
+            {filteredProducts.length}{" "}
+            {filteredProducts.length > 1 ? "Results" : "Result"} For "{query}"
+          </p>
+        </div>
+      )}
       <div className="products">
         {filteredProducts.map((product) => (
           <ProductItem product={product} key={product.id} />

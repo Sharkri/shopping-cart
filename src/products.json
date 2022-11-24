@@ -34,5 +34,14 @@
     "prefix": "$",
     "image": "cat.jpg",
     "id": "3"
+  },
+  {
+    "name": "Clara Low Credenza",
+    "path": "/shop/clara-low-credenza",
+    "description": "",
+    "price": "359.99",
+    "prefix": "$",
+    "image": "clara-low-credenza.jpg",
+    "id": "4"
   }
 ]

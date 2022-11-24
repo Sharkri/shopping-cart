@@ -2,6 +2,7 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom";
 import App from "../App";
+import { MemoryRouter } from "react-router-dom";
 
 jest.mock("../products.json", () => [
   {
@@ -30,7 +31,11 @@ jest.mock("../components/Searchbar.js", () => ({ onClose }) => (
 ));
 
 it("should fetch products properly", () => {
-  render(<App />);
+  render(
+    <MemoryRouter>
+      <App />
+    </MemoryRouter>
+  );
   const shop = screen.getByRole("link", { name: "Shop" });
   userEvent.click(shop);
   const products = JSON.parse(screen.getByTestId("products").textContent);
@@ -45,7 +50,11 @@ it("should fetch products properly", () => {
 });
 
 it("should open and close searchbar on click", () => {
-  render(<App />);
+  render(
+    <MemoryRouter>
+      <App />
+    </MemoryRouter>
+  );
 
   const openSearchbar = screen.getByRole("button", { name: "open searchbar" });
 

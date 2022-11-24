@@ -10,6 +10,7 @@ import RouteSwitch from "./RouteSwitch";
 import ProductPage from "./components/ProductPage";
 import loadImage from "./helpers/loadImage";
 import Searchbar from "./components/Searchbar";
+import { useNavigate } from "react-router-dom";
 
 const App = () => {
   // Copy products to not modify directly
@@ -23,8 +24,8 @@ const App = () => {
   const [products, setProducts] = useState(allProducts);
   const [isSearchbarOpen, setIsSearchbarOpen] = useState(false);
   const [cart, setCart] = useState([]);
+  const [query, setQuery] = useState("");
   const [canShake, setCanShake] = useState(false);
-
   // Increments product quantity
   function addToCart(product, quantity) {
     const newCart = JSON.parse(JSON.stringify(cart));
@@ -105,10 +106,27 @@ const App = () => {
   }
 
   const [featured] = useState(shuffle([...allProducts]));
+  const navigate = useNavigate();
+
+  function closeSearchbar() {
+    toggleIsSearchbarOpen();
+    setQuery("");
+  }
 
   return (
     <>
-      {isSearchbarOpen && <Searchbar onClose={toggleIsSearchbarOpen} />}
+      {isSearchbarOpen && (
+        <Searchbar
+          onClose={closeSearchbar}
+          onChange={(value) => setQuery(value)}
+          query={query}
+          onSubmit={(query) => {
+            navigate(`/shop/?q=${query}`);
+            // Close searchbar and clear query
+            closeSearchbar();
+          }}
+        />
+      )}
       <RouteSwitch
         Header={() => (
           <Header

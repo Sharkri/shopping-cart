@@ -44,3 +44,19 @@ it("should be required", () => {
   render(<Searchbar />);
   expect(screen.getByRole("searchbox")).toHaveAttribute("required");
 });
+
+it("should call onSubmit with correct params when user click query search", () => {
+  const onSubmitMock = jest.fn();
+  render(<Searchbar query="Bed" onSubmit={onSubmitMock} />);
+
+  const submitSearch = screen.getByRole("button", { name: "submit search" });
+  userEvent.click(submitSearch);
+  expect(onSubmitMock).toHaveBeenCalledWith("Bed");
+});
+it("should call onSubmit with correct params on enter", () => {
+  const onSubmitMock = jest.fn();
+  render(<Searchbar query="cat" onSubmit={onSubmitMock} />);
+
+  userEvent.type(screen.getByRole("searchbox"), "{enter}");
+  expect(onSubmitMock).toHaveBeenCalledWith("cat");
+});

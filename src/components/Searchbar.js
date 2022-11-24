@@ -1,8 +1,19 @@
 import "../styles/Searchbar.css";
 
-export default function Searchbar({ onChange, onClose, query }) {
+export default function Searchbar({
+  onChange = () => {},
+  onClose,
+  onSubmit,
+  query,
+}) {
   return (
-    <form className="searchbar-container" onSubmit={(e) => e.preventDefault()}>
+    <form
+      className="searchbar-container"
+      onSubmit={(e) => {
+        e.preventDefault();
+        onSubmit(query);
+      }}
+    >
       <div className="search-bar">
         <input
           type="search"
@@ -16,7 +27,11 @@ export default function Searchbar({ onChange, onClose, query }) {
           required
         />
 
-        <button className="query-search" type="submit">
+        <button
+          className="query-search"
+          type="submit"
+          aria-label="submit search"
+        >
           <i className="fa-solid fa-magnifying-glass" />
         </button>
       </div>

@@ -34,3 +34,8 @@ it("should set inputs value to the one passed in", () => {
 
   expect(input).toHaveValue("Couch");
 });
+
+it("should automatically be focused on load", () => {
+  render(<Searchbar />);
+  expect(screen.getByRole("searchbox")).toHaveFocus();
+});

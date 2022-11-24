@@ -12,6 +12,7 @@ export default function Searchbar({ onChange, onClose, query }) {
           autoComplete="off"
           value={query}
           onChange={(event) => onChange(event.target.value)}
+          autoFocus
         />
         <button className="query-search">
           <i className="fa-solid fa-magnifying-glass" />

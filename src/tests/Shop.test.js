@@ -65,23 +65,6 @@ describe("shop", () => {
     expect(paths[1].textContent).toBe("/test/yes");
   });
 
-  it("renders no products found when given an empty array of products", () => {
-    render(
-      <MemoryRouter>
-        <Shop products={[]} />
-      </MemoryRouter>
-    );
-
-    expect(screen.getByText(/No products found/i)).toBeInTheDocument();
-    expect(
-      screen.getByText(/Please check your spelling or use different keywords./i)
-    ).toBeInTheDocument();
-
-    expect(
-      screen.getByRole("link", { name: /Return to shop/i })
-    ).toHaveAttribute("href", "/shop");
-  });
-
   it("should only show search that matches query", () => {
     render(
       <MemoryRouter initialEntries={["?q=some"]}>
@@ -100,6 +83,8 @@ describe("shop", () => {
       </MemoryRouter>
     );
 
-    expect(screen.getByText(/No products found/i)).toBeInTheDocument();
+    expect(
+      screen.getByText(/No products found for "123xyz"/i)
+    ).toBeInTheDocument();
   });
 });

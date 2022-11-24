@@ -15,7 +15,7 @@ function Shop({ products }) {
   if (!filteredProducts.length) {
     return (
       <div className="shop">
-        <NoProductsFound />
+        <NoProductsFound query={query} />
       </div>
     );
   }

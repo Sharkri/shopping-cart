@@ -65,7 +65,7 @@ describe("shop", () => {
     expect(paths[1].textContent).toBe("/test/yes");
   });
 
-  it("should only show search that matches query", () => {
+  it("only shows search that matches query", () => {
     render(
       <MemoryRouter initialEntries={["?q=some"]}>
         <Shop products={items} />
@@ -74,6 +74,26 @@ describe("shop", () => {
 
     expect(screen.getByText("some other item")).toBeInTheDocument();
     expect(screen.queryByText("product name")).not.toBeInTheDocument();
+  });
+
+  it("renders showing results for {query}", () => {
+    render(
+      <MemoryRouter initialEntries={["?q=prod"]}>
+        <Shop products={items} />
+      </MemoryRouter>
+    );
+
+    expect(screen.getByText(/Showing results for "prod"/)).toBeInTheDocument();
+  });
+
+  it("does not renders showing results for {query} on no query", () => {
+    render(
+      <MemoryRouter>
+        <Shop products={items} />
+      </MemoryRouter>
+    );
+
+    expect(screen.queryByText(/Showing results for/)).not.toBeInTheDocument();
   });
 
   it("renders no products found when query not found", () => {

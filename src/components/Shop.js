@@ -22,6 +22,7 @@ function Shop({ products }) {
 
   return (
     <div className="shop">
+      {query && `Showing results for "${query}"`}
       <div className="products">
         {filteredProducts.map((product) => (
           <ProductItem product={product} key={product.id} />

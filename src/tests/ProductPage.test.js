@@ -11,12 +11,6 @@ jest.mock("react-router-dom", () => ({
   useNavigate: () => mockNavigate,
 }));
 
-// const reactRouterDomMock = jest.requireMock("react-router-dom");
-// const navigateMock = jest.fn();
-// reactRouterDomMock.useNavigate = jest
-//   .fn()
-//   .mockReturnValue(jest.fn().mockReturnValue({ navigate: navigateMock }));
-
 const product = {
   name: "Product Name",
   description: "This product is cool.",

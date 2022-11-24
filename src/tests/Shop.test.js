@@ -81,4 +81,25 @@ describe("shop", () => {
       screen.getByRole("link", { name: /Return to shop/i })
     ).toHaveAttribute("href", "/shop");
   });
+
+  it("should only show search that matches query", () => {
+    render(
+      <MemoryRouter initialEntries={["?q=some"]}>
+        <Shop products={items} />
+      </MemoryRouter>
+    );
+
+    expect(screen.getByText("some other item")).toBeInTheDocument();
+    expect(screen.queryByText("product name")).not.toBeInTheDocument();
+  });
+
+  it("renders no products found when query not found", () => {
+    render(
+      <MemoryRouter initialEntries={["?q=123xyz"]}>
+        <Shop products={items} />
+      </MemoryRouter>
+    );
+
+    expect(screen.getByText(/No products found/i)).toBeInTheDocument();
+  });
 });

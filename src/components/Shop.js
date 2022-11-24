@@ -4,20 +4,26 @@ import NoProductsFound from "./NoProductsFound";
 import { useSearchParams } from "react-router-dom";
 
 function Shop({ products }) {
-  const [searchParams] = useSearchParams();
-  console.log(searchParams.get("q"));
+  function isMatchingQuery({ name }) {
+    return name.toLowerCase().includes(query.toLowerCase());
+  }
 
-  if (products == null || !products.length) {
+  const [searchParams] = useSearchParams();
+  const query = searchParams.get("q");
+  const filteredProducts = query ? products.filter(isMatchingQuery) : products;
+
+  if (!filteredProducts.length) {
     return (
       <div className="shop">
         <NoProductsFound />
       </div>
     );
   }
+
   return (
     <div className="shop">
       <div className="products">
-        {products.map((product) => (
+        {filteredProducts.map((product) => (
           <ProductItem product={product} key={product.id} />
         ))}
       </div>

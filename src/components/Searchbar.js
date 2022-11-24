@@ -2,7 +2,7 @@ import "../styles/Searchbar.css";
 
 export default function Searchbar({ onChange, onClose, query }) {
   return (
-    <div className="searchbar-container">
+    <form className="searchbar-container" onSubmit={(e) => e.preventDefault()}>
       <div className="search-bar">
         <input
           type="search"
@@ -13,14 +13,22 @@ export default function Searchbar({ onChange, onClose, query }) {
           value={query}
           onChange={(event) => onChange(event.target.value)}
           autoFocus
+          required
         />
-        <button className="query-search">
+
+        <button className="query-search" type="submit">
           <i className="fa-solid fa-magnifying-glass" />
         </button>
       </div>
-      <button aria-label="close" onClick={onClose} className="close-searchbar">
+
+      <button
+        aria-label="close"
+        onClick={onClose}
+        className="close-searchbar"
+        type="button"
+      >
         <i className="fa-solid fa-close" />
       </button>
-    </div>
+    </form>
   );
 }

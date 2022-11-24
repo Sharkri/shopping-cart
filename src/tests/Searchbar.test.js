@@ -39,3 +39,8 @@ it("should automatically be focused on load", () => {
   render(<Searchbar />);
   expect(screen.getByRole("searchbox")).toHaveFocus();
 });
+
+it("should be required", () => {
+  render(<Searchbar />);
+  expect(screen.getByRole("searchbox")).toHaveAttribute("required");
+});

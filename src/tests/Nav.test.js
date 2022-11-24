@@ -4,10 +4,6 @@ import { BrowserRouter } from "react-router-dom";
 import "@testing-library/jest-dom";
 import userEvent from "@testing-library/user-event";
 
-jest.mock("../components/Searchbar.js", () => () => (
-  <div>Searchbar Component</div>
-));
-
 describe("nav", () => {
   it("should navigate to href properly", async () => {
     render(
@@ -75,25 +71,23 @@ describe("nav", () => {
     expect(cartLink.className.includes("shake")).toBeFalsy();
   });
 
-  describe("search", () => {
-    it("should call onOpenSearchbar", () => {
-      const mockOnSearchbarOpen = jest.fn();
+  it("should call onOpenSearchbar", () => {
+    const mockOnSearchbarOpen = jest.fn();
 
-      render(
-        <BrowserRouter>
-          <Nav onSearchbarOpen={mockOnSearchbarOpen} />
-        </BrowserRouter>
-      );
+    render(
+      <BrowserRouter>
+        <Nav onSearchbarOpen={mockOnSearchbarOpen} />
+      </BrowserRouter>
+    );
 
-      const openSearchbar = screen.getByRole("button", {
-        name: "open searchbar",
-      });
-
-      expect(mockOnSearchbarOpen).not.toHaveBeenCalled();
-
-      userEvent.click(openSearchbar);
-
-      expect(mockOnSearchbarOpen).toHaveBeenCalledTimes(1);
+    const openSearchbar = screen.getByRole("button", {
+      name: "open searchbar",
     });
+
+    expect(mockOnSearchbarOpen).not.toHaveBeenCalled();
+
+    userEvent.click(openSearchbar);
+
+    expect(mockOnSearchbarOpen).toHaveBeenCalledTimes(1);
   });
 });

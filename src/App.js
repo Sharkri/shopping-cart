@@ -14,14 +14,12 @@ import { useNavigate } from "react-router-dom";
 
 const App = () => {
   // Copy products to not modify directly
-  const allProducts = JSON.parse(JSON.stringify(productsData));
+  const products = JSON.parse(JSON.stringify(productsData));
 
-  allProducts.forEach((product) => {
+  products.forEach((product) => {
     product.image = loadImage(product.image);
   });
 
-  // Will implement search products on this later
-  const [products, setProducts] = useState(allProducts);
   const [isSearchbarOpen, setIsSearchbarOpen] = useState(false);
   const [cart, setCart] = useState([]);
   const [query, setQuery] = useState("");
@@ -105,7 +103,7 @@ const App = () => {
     return array;
   }
 
-  const [featured] = useState(shuffle([...allProducts]));
+  const [featured] = useState(shuffle([...products]));
   const navigate = useNavigate();
 
   function closeSearchbar() {
@@ -184,7 +182,7 @@ const App = () => {
           },
 
           // Create route for all products
-          ...allProducts.map((product) => ({
+          ...products.map((product) => ({
             element: (
               <ProductPage
                 product={product}

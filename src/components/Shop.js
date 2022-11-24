@@ -1,8 +1,12 @@
 import ProductItem from "./ProductItem";
 import "../styles/Shop.css";
 import NoProductsFound from "./NoProductsFound";
+import { useSearchParams } from "react-router-dom";
 
 function Shop({ products }) {
+  const [searchParams] = useSearchParams();
+  console.log(searchParams.get("q"));
+
   if (products == null || !products.length) {
     return (
       <div className="shop">

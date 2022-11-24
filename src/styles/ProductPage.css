@@ -65,7 +65,7 @@
 }
 
 .add-to-cart {
-  color: white;
+  color: var(--white);
   border: none;
   background-color: var(--blue);
   padding: 6px 16px;

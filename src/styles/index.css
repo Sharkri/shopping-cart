@@ -35,6 +35,7 @@ body {
   --page-padding: 28px;
   --header-height: 75px;
   height: 100vh;
+  background-color: var(--white);
 }
 
 #root {

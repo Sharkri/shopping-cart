@@ -5,6 +5,7 @@ import OpenSearchbar from "./OpenSearcbar";
 function Nav({ cartAmount, canShake, onSearchbarOpen }) {
   return (
     <nav>
+      <OpenSearchbar onSearchbarOpen={onSearchbarOpen} />
       <Link to="/">Home</Link>
       <Link to="/shop">Shop</Link>
       <Link
@@ -25,8 +26,6 @@ function Nav({ cartAmount, canShake, onSearchbarOpen }) {
           ) : null
         }
       </Link>
-
-      <OpenSearchbar onSearchbarOpen={onSearchbarOpen} />
     </nav>
   );
 }

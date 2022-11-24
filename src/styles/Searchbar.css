@@ -1,4 +1,5 @@
 .searchbar-container {
+  --searchbar-bg-color: rgba(0, 0, 0, 0.8);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -8,8 +9,9 @@
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.75);
+  background-color: var(--searchbar-bg-color);
   --search-text-size: min(4vw, 46px);
+  animation: search-render 0.8s ease;
 }
 
 .search-bar {
@@ -18,13 +20,23 @@
 
 #search-input {
   border: none;
-  border-bottom: 2px solid #1890ff;
   padding: 5px 0 5px min(calc(4vw + 16px), 69px);
   outline: none;
   background-color: transparent;
   caret-color: var(--white);
   color: var(--white);
   font-size: var(--search-text-size);
+}
+
+.search-bar::after {
+  content: "";
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  display: block;
+  border-bottom: 3px solid #1890ff;
+  animation: border-bottom 0.8s ease;
+  margin: auto;
 }
 
 #search-input::-webkit-search-cancel-button {
@@ -47,6 +59,7 @@
   left: 4px;
   top: 5px;
   font-size: var(--search-text-size);
+  transform: scale(0.9);
   color: var(--white);
 }
 
@@ -59,4 +72,22 @@
   outline: none;
   color: var(--white);
   font-size: min(6vw, 48px);
+}
+
+@keyframes border-bottom {
+  from {
+    width: 25%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes search-render {
+  from {
+    background-color: rgba(0, 0, 0, 0.26);
+  }
+  to {
+    background-color: var(--searchbar-bg-color);
+  }
 }

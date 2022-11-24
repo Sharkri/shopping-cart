@@ -5,9 +5,8 @@ import OpenSearchbar from "./OpenSearcbar";
 function Nav({ cartAmount, canShake, onSearchbarOpen }) {
   return (
     <nav>
-      <OpenSearchbar onSearchbarOpen={onSearchbarOpen} />
-      <Link to="/">Home</Link>
       <Link to="/shop">Shop</Link>
+      <OpenSearchbar onSearchbarOpen={onSearchbarOpen} />
       <Link
         to="/cart"
         className={`cart-link ${canShake ? "shake" : ""}`}

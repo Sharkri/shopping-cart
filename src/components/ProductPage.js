@@ -32,7 +32,9 @@ export default function ProductPage({ product, onAddToCart }) {
               <p className="product-price">{`${product.prefix}${product.price}`}</p>
             </div>
 
-            <p>{product.description || "No description provided."}</p>
+            <p className="product-description">
+              {product.description || "No description provided."}
+            </p>
           </div>
 
           <hr />

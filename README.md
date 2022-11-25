@@ -1,0 +1,25 @@
+## Short Description
+
+An e-commerce store, imitating a furniture store, built with React. Includes dedicated product pages, search functionality, and more. Responsive and tested with Jest.
+
+> See it live on [sharkri.github.io/shopping-cart/
+> ](https://sharkri.github.io/shopping-cart/)
+
+## Showcase
+
+![homepage preview](./src/images/homepage-preview.png)
+![shop preview](./src/images/shop-preview.png)
+![product page preview](./src/images/product-page-preview.png)
+![search preview](./src/images/search-preview.png)
+![cart preview](./src/images/cart-preview.png)
+
+## Objectives & Outcomes
+
+The main motivation for this work was to design and deploy a multiple page application using react-router-dom.
+
+## Technologies
+
+- [React Testing Library](https://testing-library.com/) - A library for testing React applications
+- [ESLint](https://eslint.org/) - A linter tool to standardize code
+- [Github Pages](https://pages.github.com/) - Hosting
+- [React Router](https://reactrouter.com/web/guides/quick-start) - Router tool for React applications

@@ -1,6 +1,6 @@
 .shop-item {
   cursor: pointer;
-  animation: 0.4s render ease;
+  animation: 0.5s render ease;
   color: black;
   display: flex;
   flex-direction: column;

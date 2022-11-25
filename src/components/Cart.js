@@ -40,7 +40,15 @@ function Cart({
             <p className="subtotal">
               Subtotal: <span className="subtotal-amount">${subtotal}</span>
             </p>
-            <button className="checkout">Proceed to Checkout</button>
+            <button className="checkout">
+              <a
+                href="https://youtu.be/Tt7bzxurJ1I"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Proceed to Checkout
+              </a>
+            </button>
           </>
         )}
       </div>

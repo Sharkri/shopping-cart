@@ -1,18 +1,23 @@
 {
   "files": {
     "main.css": "/shopping-cart/static/css/main.01f8358e.css",
-    "main.js": "/shopping-cart/static/js/main.4b6f5eae.js",
-    "static/media/homepage.jpg": "/shopping-cart/static/media/homepage.fdec94ed7b4d5f0bb791.jpg",
+    "main.js": "/shopping-cart/static/js/main.583a34ed.js",
+    "static/media/homepage-preview.png": "/shopping-cart/static/media/homepage-preview.93454278f8d5a9f5e124.png",
     "static/media/wooden-bed.jpg": "/shopping-cart/static/media/wooden-bed.464f843922b808e445d4.jpg",
+    "static/media/homepage.jpg": "/shopping-cart/static/media/homepage.aedaf1d81bef66330537.jpg",
     "static/media/fa-solid-900.ttf": "/shopping-cart/static/media/fa-solid-900.b48ad290d0335879a92b.ttf",
+    "static/media/shop-preview.png": "/shopping-cart/static/media/shop-preview.a0a21ed0d4961d6d8533.png",
+    "static/media/search-preview.png": "/shopping-cart/static/media/search-preview.2d6829212a5144eb20d3.png",
     "static/media/Montserrat-SemiBold.ttf": "/shopping-cart/static/media/Montserrat-SemiBold.d5e0cc788cba9ced1fb9.ttf",
     "static/media/Montserrat-Bold.ttf": "/shopping-cart/static/media/Montserrat-Bold.2c155811b35513d5beaa.ttf",
     "static/media/Montserrat-Regular.ttf": "/shopping-cart/static/media/Montserrat-Regular.ceb11275ab638627a643.ttf",
     "static/media/Montserrat-ExtraLight.ttf": "/shopping-cart/static/media/Montserrat-ExtraLight.ef3c777f702c89a0f300.ttf",
     "static/media/fa-brands-400.ttf": "/shopping-cart/static/media/fa-brands-400.f9ee61fab3c11e2f3ed3.ttf",
+    "static/media/product-page-preview.png": "/shopping-cart/static/media/product-page-preview.77bf27035371082a801f.png",
     "static/media/beige-sofa.jpg": "/shopping-cart/static/media/beige-sofa.ed1c9aa99961a5ec77f7.jpg",
     "static/media/fa-solid-900.woff2": "/shopping-cart/static/media/fa-solid-900.66104b766c3d0462b3c5.woff2",
     "static/media/fa-brands-400.woff2": "/shopping-cart/static/media/fa-brands-400.e1a247a5ef41e1975742.woff2",
+    "static/media/cart-preview.png": "/shopping-cart/static/media/cart-preview.95d22c8c233543ebe98c.png",
     "static/media/pattern.jpeg": "/shopping-cart/static/media/pattern.4119748a4a6daac4b531.jpeg",
     "static/media/fa-regular-400.ttf": "/shopping-cart/static/media/fa-regular-400.abf801b7acb6705a15ad.ttf",
     "static/media/white-wooden-cabinet.jpg": "/shopping-cart/static/media/white-wooden-cabinet.edcd2256313016297132.jpg",
@@ -23,10 +28,10 @@
     "static/media/fa-v4compatibility.woff2": "/shopping-cart/static/media/fa-v4compatibility.745989aab0d69cab7e70.woff2",
     "index.html": "/shopping-cart/index.html",
     "main.01f8358e.css.map": "/shopping-cart/static/css/main.01f8358e.css.map",
-    "main.4b6f5eae.js.map": "/shopping-cart/static/js/main.4b6f5eae.js.map"
+    "main.583a34ed.js.map": "/shopping-cart/static/js/main.583a34ed.js.map"
   },
   "entrypoints": [
     "static/css/main.01f8358e.css",
-    "static/js/main.4b6f5eae.js"
+    "static/js/main.583a34ed.js"
   ]
 }

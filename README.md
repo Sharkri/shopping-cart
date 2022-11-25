@@ -7,10 +7,24 @@ An e-commerce store, imitating a furniture store, built with React. Includes ded
 
 ## Showcase
 
+#### Homepage
+
 ![homepage preview](./src/images/homepage-preview.png)
+
+#### Shop
+
 ![shop preview](./src/images/shop-preview.png)
+
+#### Product Page
+
 ![product page preview](./src/images/product-page-preview.png)
+
+#### Search
+
 ![search preview](./src/images/search-preview.png)
+
+#### Cart
+
 ![cart preview](./src/images/cart-preview.png)
 
 ## Objectives & Outcomes

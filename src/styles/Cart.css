@@ -17,7 +17,7 @@
 .cart-content {
   padding-top: 10px;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   flex-direction: column;
   margin-top: 32px;
   width: clamp(310px, 100%, 500px);
@@ -57,14 +57,18 @@
   letter-spacing: 0.5px;
 }
 
+.checkout-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
 .checkout {
-  font-family: "Montserrat-Bold", sans-serif;
-  text-transform: uppercase;
+  padding: 8px 24px;
   line-height: 1.5;
   letter-spacing: 0.3px;
-  color: var(--white);
-  border: none;
-  background-color: var(--blue);
-  padding: 8px 24px;
   border-radius: 2px;
+  background-color: var(--blue);
+  text-transform: uppercase;
+  font-size: 14px;
 }

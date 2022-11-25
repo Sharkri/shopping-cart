@@ -8,6 +8,7 @@
   box-shadow: rgb(0 0 0 / 8%) 0px 4px 15px;
   transition: box-shadow 0.25s ease-in-out 0s;
   max-width: 228px;
+  background-color: var(--white);
 }
 
 .shop-item:hover {

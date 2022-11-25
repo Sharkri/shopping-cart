@@ -36,12 +36,12 @@
     "id": "3"
   },
   {
-    "name": "Clara Low Credenza",
-    "path": "/shop/clara-low-credenza",
+    "name": "Zanzibar Gem",
+    "path": "/shop/zanzibar-gem",
     "description": "",
-    "price": "359.99",
+    "price": "19.99",
     "prefix": "$",
-    "image": "clara-low-credenza.jpg",
+    "image": "plant.jpg",
     "id": "4"
   }
 ]

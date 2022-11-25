@@ -9,9 +9,9 @@
 
 .product-page {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 80px;
-  justify-content: center;
   width: 100%;
 }
 
@@ -39,7 +39,7 @@
   max-width: 100%;
   max-height: 100%;
   box-shadow: 0 5px 10px #0000001a;
-  height: 400px;
+  height: min(100vh, 500px);
   object-fit: cover;
 }
 

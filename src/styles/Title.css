@@ -1,0 +1,6 @@
+.title > a {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: min(4vw, 24px);
+  display: flex;
+}

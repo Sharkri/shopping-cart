@@ -11,7 +11,7 @@ function Header({ cartAmount, canShake, onSearchbarOpen }) {
 
   return (
     <header style={headerStyles}>
-      <Title title="idk" />
+      <Title title="home furnishing" />
       <Nav
         cartAmount={cartAmount}
         canShake={canShake}

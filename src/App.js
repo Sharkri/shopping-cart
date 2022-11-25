@@ -111,6 +111,12 @@ const App = () => {
     setQuery("");
   }
 
+  const calculateSubtotal = () =>
+    cart.reduce(
+      (accumulator, item) => accumulator + item.price * item.quantity,
+      0
+    );
+
   return (
     <>
       {isSearchbarOpen && (
@@ -129,10 +135,9 @@ const App = () => {
         Header={() => (
           <Header
             cartAmount={
+              // Add up all quantities to get cart amount
               cart.length &&
-              cart.reduce((accumulator, curr) => {
-                return accumulator + curr.quantity;
-              }, 0)
+              cart.reduce((accumulator, item) => accumulator + item.quantity, 0)
             }
             canShake={canShake}
             onSearchbarOpen={toggleIsSearchbarOpen}
@@ -165,15 +170,8 @@ const App = () => {
                 onIncrement={incrementCartItem}
                 onRemove={deleteFromCart}
                 subtotal={
-                  // Make sure cart is not empty before reducing
                   cart.length &&
-                  (+cart
-                    .reduce(
-                      (accumulator, curr) =>
-                        accumulator + curr.price * curr.quantity,
-                      0
-                    )
-                    .toFixed(2)).toLocaleString()
+                  (+calculateSubtotal().toFixed(2)).toLocaleString()
                 }
               />
             ),

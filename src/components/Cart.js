@@ -40,6 +40,7 @@ function Cart({
             <p className="subtotal">
               Subtotal: <span className="subtotal-amount">${subtotal}</span>
             </p>
+            <button className="checkout">Proceed to Checkout</button>
           </>
         )}
       </div>

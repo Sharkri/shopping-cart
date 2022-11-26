@@ -1,12 +1,14 @@
 {
   "files": {
     "main.css": "/shopping-cart/static/css/main.01f8358e.css",
-    "main.js": "/shopping-cart/static/js/main.583a34ed.js",
+    "main.js": "/shopping-cart/static/js/main.f8edae17.js",
     "static/media/homepage-preview.png": "/shopping-cart/static/media/homepage-preview.93454278f8d5a9f5e124.png",
     "static/media/wooden-bed.jpg": "/shopping-cart/static/media/wooden-bed.464f843922b808e445d4.jpg",
-    "static/media/homepage.jpg": "/shopping-cart/static/media/homepage.aedaf1d81bef66330537.jpg",
+    "static/media/homepage-extra-large.jpg": "/shopping-cart/static/media/homepage-extra-large.aedaf1d81bef66330537.jpg",
+    "static/media/homepage-large.jpg": "/shopping-cart/static/media/homepage-large.93d6c9be4bc760ec2872.jpg",
     "static/media/fa-solid-900.ttf": "/shopping-cart/static/media/fa-solid-900.b48ad290d0335879a92b.ttf",
     "static/media/shop-preview.png": "/shopping-cart/static/media/shop-preview.a0a21ed0d4961d6d8533.png",
+    "static/media/homepage-medium.jpg": "/shopping-cart/static/media/homepage-medium.24792f9d5aa93fd455d9.jpg",
     "static/media/search-preview.png": "/shopping-cart/static/media/search-preview.2d6829212a5144eb20d3.png",
     "static/media/Montserrat-SemiBold.ttf": "/shopping-cart/static/media/Montserrat-SemiBold.d5e0cc788cba9ced1fb9.ttf",
     "static/media/Montserrat-Bold.ttf": "/shopping-cart/static/media/Montserrat-Bold.2c155811b35513d5beaa.ttf",
@@ -23,15 +25,16 @@
     "static/media/white-wooden-cabinet.jpg": "/shopping-cart/static/media/white-wooden-cabinet.edcd2256313016297132.jpg",
     "static/media/cat.jpg": "/shopping-cart/static/media/cat.990c21837fb4ad79499c.jpg",
     "static/media/plant.jpg": "/shopping-cart/static/media/plant.00af86d26077f4d5040f.jpg",
+    "static/media/homepage-small.jpg": "/shopping-cart/static/media/homepage-small.d67147e7f2ab43862cc8.jpg",
     "static/media/fa-regular-400.woff2": "/shopping-cart/static/media/fa-regular-400.639d2000c1ece92eaec8.woff2",
     "static/media/fa-v4compatibility.ttf": "/shopping-cart/static/media/fa-v4compatibility.f601162ae669f88823a3.ttf",
     "static/media/fa-v4compatibility.woff2": "/shopping-cart/static/media/fa-v4compatibility.745989aab0d69cab7e70.woff2",
     "index.html": "/shopping-cart/index.html",
     "main.01f8358e.css.map": "/shopping-cart/static/css/main.01f8358e.css.map",
-    "main.583a34ed.js.map": "/shopping-cart/static/js/main.583a34ed.js.map"
+    "main.f8edae17.js.map": "/shopping-cart/static/js/main.f8edae17.js.map"
   },
   "entrypoints": [
     "static/css/main.01f8358e.css",
-    "static/js/main.583a34ed.js"
+    "static/js/main.f8edae17.js"
   ]
 }

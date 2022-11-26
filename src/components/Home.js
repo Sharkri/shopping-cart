@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
 import "../styles/Home.css";
-import homepage from "../images/homepage.jpg";
+import homepageExtraLarge from "../images/homepage-extra-large.jpg";
+import homepageLarge from "../images/homepage-large.jpg";
+import homepageMedium from "../images/homepage-medium.jpg";
+import homepageSmall from "../images/homepage-small.jpg";
 import ProductItem from "./ProductItem";
 
 function Home({ featured = [] }) {
@@ -8,7 +11,8 @@ function Home({ featured = [] }) {
     <div className="home">
       <section className="top-section">
         <img
-          src={homepage}
+          src={homepageLarge}
+          srcSet={`${homepageExtraLarge} 6912w, ${homepageLarge} 2400w, ${homepageMedium} 1400w, ${homepageSmall} 480w`}
           alt="living room with furniture"
           className="homepage-img"
         />

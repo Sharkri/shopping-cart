@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Home from "./components/Home";
 import Header from "./components/Header";
 import Shop from "./components/Shop";
@@ -116,6 +116,10 @@ const App = () => {
       (accumulator, item) => accumulator + item.price * item.quantity,
       0
     );
+
+  useEffect(() => {
+    document.title = "Home Furnishing";
+  }, []);
 
   return (
     <>

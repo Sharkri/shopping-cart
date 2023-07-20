@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/shopping-cart/static/css/main.1561e184.css",
+    "main.css": "/shopping-cart/static/css/main.1775e0b2.css",
     "main.js": "/shopping-cart/static/js/main.a11bc808.js",
     "static/media/homepage-preview.png": "/shopping-cart/static/media/homepage-preview.93454278f8d5a9f5e124.png",
     "static/media/wooden-bed.jpg": "/shopping-cart/static/media/wooden-bed.464f843922b808e445d4.jpg",
@@ -30,11 +30,11 @@
     "static/media/fa-v4compatibility.ttf": "/shopping-cart/static/media/fa-v4compatibility.f601162ae669f88823a3.ttf",
     "static/media/fa-v4compatibility.woff2": "/shopping-cart/static/media/fa-v4compatibility.745989aab0d69cab7e70.woff2",
     "index.html": "/shopping-cart/index.html",
-    "main.1561e184.css.map": "/shopping-cart/static/css/main.1561e184.css.map",
+    "main.1775e0b2.css.map": "/shopping-cart/static/css/main.1775e0b2.css.map",
     "main.a11bc808.js.map": "/shopping-cart/static/js/main.a11bc808.js.map"
   },
   "entrypoints": [
-    "static/css/main.1561e184.css",
+    "static/css/main.1775e0b2.css",
     "static/js/main.a11bc808.js"
   ]
 }
